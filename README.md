@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version used: 2.6.3
 
-Things you may want to cover:
+In the model of the project the following entities are created:
 
-* Ruby version
+* Test - contains the questions and right answers. Also has an author (or several authors)
 
-* System dependencies
+* * Question is the text, which has a set of right answers
 
-* Configuration
+* * Answer is a text or an option, connected with one of the questions.
+If not in the set of the right answers, considered to be wrong
 
-* Database creation
+* User is the registered (or not) user of the service
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Author is a user who has created a test (or several tests)
