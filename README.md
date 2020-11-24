@@ -1,6 +1,6 @@
 # README
 
-Ruby version used: 2.6.3
+Ruby version used: 2.7.2
 
 In the model of the project the following entities are created:
 
