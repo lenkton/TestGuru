@@ -48,3 +48,8 @@ Answer.create([
                 { text: 'The right answer', question_id: 9, correct: true },
                 { text: 'A wrong answer', question_id: 9, correct: false }
               ])
+TestTakingSession.create([
+                           { user_id: 3, test_id: 1 },
+                           { user_id: 3, test_id: 2 },
+                           { user_id: 3, test_id: 3 }
+                         ])
