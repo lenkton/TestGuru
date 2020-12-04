@@ -14,15 +14,15 @@ tests =
   Test.create!([
                  { name: 'Ruby for beginners',
                    category_id: categories[1].id,
-                   user_id: users[0].id,
+                   author_id: users[0].id,
                    level: 0 },
                  { name: 'Getting Rich: bird-eye perspective',
                    category_id: categories[2].id,
-                   user_id: users[1].id,
+                   author_id: users[1].id,
                    level: 1 },
                  { name: "How to write computer programs in HTML: Tips for Pro's",
                    category_id: categories[0].id,
-                   user_id: users[2].id,
+                   author_id: users[2].id,
                    level: 3 }
                ])
 questions =

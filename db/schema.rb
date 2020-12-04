@@ -47,12 +47,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_200644) do
   create_table "tests", force: :cascade do |t|
     t.string "name", null: false
     t.integer "category_id", null: false
-    t.integer "user_id", null: false
+    t.integer "author_id", null: false
     t.integer "level", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,5 +65,5 @@ ActiveRecord::Schema.define(version: 2020_12_01_200644) do
   add_foreign_key "test_taking_sessions", "tests"
   add_foreign_key "test_taking_sessions", "users"
   add_foreign_key "tests", "categories"
-  add_foreign_key "tests", "users"
+  add_foreign_key "tests", "users", column: "author_id"
 end
