@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   def participated_tests(level)
-    TestTakingSession.where(user_id: id).includes(:test).where(tests: { level: level }).distinct.map(&:test)
+    Test.joins('JOIN test_taking_sessions ON tests.id = test_taking_sessions.test_id').where(level: level)
   end
 end
