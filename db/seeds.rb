@@ -13,60 +13,60 @@ users =
 tests =
   Test.create!([
                  { name: 'Ruby for beginners',
-                   category_id: categories[1].id,
-                   author_id: users[0].id,
+                   category: categories[1],
+                   author: users[0],
                    level: 0 },
                  { name: 'Getting Rich: bird-eye perspective',
-                   category_id: categories[2].id,
-                   author_id: users[1].id,
+                   category: categories[2],
+                   author: users[1],
                    level: 1 },
                  { name: 'My second test',
-                   category_id: categories[2].id,
-                   author_id: users[1].id,
+                   category: categories[2],
+                   author: users[1],
                    level: 0 },
                  { name: "How to write computer programs in HTML: Tips for Pro's",
-                   category_id: categories[0].id,
-                   author_id: users[2].id,
+                   category: categories[0],
+                   author: users[2],
                    level: 3 }
                ])
 questions =
   Question.create!([
-                     { text: 'Test question #11', test_id: tests[0].id },
-                     { text: 'Test question #21', test_id: tests[0].id },
-                     { text: 'Test question #31', test_id: tests[0].id },
+                     { text: 'Test question #11', test: tests[0] },
+                     { text: 'Test question #21', test: tests[0] },
+                     { text: 'Test question #31', test: tests[0] },
 
-                     { text: 'Test question #12', test_id: tests[1].id },
-                     { text: 'Test question #22', test_id: tests[1].id },
-                     { text: 'Test question #32', test_id: tests[1].id },
+                     { text: 'Test question #12', test: tests[1] },
+                     { text: 'Test question #22', test: tests[1] },
+                     { text: 'Test question #32', test: tests[1] },
 
-                     { text: 'Test question #13', test_id: tests[2].id },
-                     { text: 'Test question #23', test_id: tests[2].id },
-                     { text: 'Test question #33', test_id: tests[2].id }
+                     { text: 'Test question #13', test: tests[2] },
+                     { text: 'Test question #23', test: tests[2] },
+                     { text: 'Test question #33', test: tests[2] }
                    ])
 Answer.create!([
-                 { text: 'The right answer', question_id: questions[0].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[0].id, correct: false },
-                 { text: 'The right answer', question_id: questions[1].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[1].id, correct: false },
-                 { text: 'The right answer', question_id: questions[2].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[2].id, correct: false },
+                 { text: 'The right answer', question: questions[0], correct: true },
+                 { text: 'A wrong answer', question: questions[0], correct: false },
+                 { text: 'The right answer', question: questions[1], correct: true },
+                 { text: 'A wrong answer', question: questions[1], correct: false },
+                 { text: 'The right answer', question: questions[2], correct: true },
+                 { text: 'A wrong answer', question: questions[2], correct: false },
 
-                 { text: 'The right answer', question_id: questions[3].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[3].id, correct: false },
-                 { text: 'The right answer', question_id: questions[4].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[4].id, correct: false },
-                 { text: 'The right answer', question_id: questions[5].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[5].id, correct: false },
+                 { text: 'The right answer', question: questions[3], correct: true },
+                 { text: 'A wrong answer', question: questions[3], correct: false },
+                 { text: 'The right answer', question: questions[4], correct: true },
+                 { text: 'A wrong answer', question: questions[4], correct: false },
+                 { text: 'The right answer', question: questions[5], correct: true },
+                 { text: 'A wrong answer', question: questions[5], correct: false },
 
-                 { text: 'The right answer', question_id: questions[6].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[6].id, correct: false },
-                 { text: 'The right answer', question_id: questions[7].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[7].id, correct: false },
-                 { text: 'The right answer', question_id: questions[8].id, correct: true },
-                 { text: 'A wrong answer', question_id: questions[8].id, correct: false }
+                 { text: 'The right answer', question: questions[6], correct: true },
+                 { text: 'A wrong answer', question: questions[6], correct: false },
+                 { text: 'The right answer', question: questions[7], correct: true },
+                 { text: 'A wrong answer', question: questions[7], correct: false },
+                 { text: 'The right answer', question: questions[8], correct: true },
+                 { text: 'A wrong answer', question: questions[8], correct: false }
                ])
 TestTakingSession.create!([
-                            { user_id: users[2].id, test_id: tests[0].id },
-                            { user_id: users[2].id, test_id: tests[1].id },
-                            { user_id: users[2].id, test_id: tests[2].id }
+                            { user: users[2], test: tests[0] },
+                            { user: users[2], test: tests[1] },
+                            { user: users[2], test: tests[2] }
                           ])
