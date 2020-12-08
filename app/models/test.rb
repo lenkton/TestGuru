@@ -11,7 +11,7 @@ class Test < ApplicationRecord
   scope :of_level, ->(level) { where(level: level) }
 
   validates :name, :level, :author, :category, presence: true
-  validates :level, numiricality: { only_integer: true, greater_than: 0}
+  validates :level, numiricality: { only_integer: true, greater_than: 0 }
 
   def self.from_category(category)
     Category.tests_from_category_desc(category).pluck(:name)
