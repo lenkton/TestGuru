@@ -8,6 +8,7 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: [0..1]) }
   scope :medium, -> { where(level: [2..4]) }
   scope :hard, -> { where(level: [5..Float::INFINITY]) }
+  scope :of_level, ->(level) { where(level: level) }
 
   def self.from_category(category)
     Category.find_by(name: category).tests.order(name: :desc).pluck(:name)
