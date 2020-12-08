@@ -11,6 +11,6 @@ class Test < ApplicationRecord
   scope :of_level, ->(level) { where(level: level) }
 
   def self.from_category(category)
-    Category.find_by(name: category).tests.order(name: :desc).pluck(:name)
+    Category.tests_from_category_desc(category).pluck(:name)
   end
 end
