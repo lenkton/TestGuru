@@ -15,7 +15,9 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: [5..Float::INFINITY]) }
   scope :of_level, ->(level) { where(level: level) }
 
+  scope :of_category, ->(category) { joins(:category).where(categories: { name: category }).order(name: :desc) }
+
   def self.from_category(category)
-    Category.tests_from_category_desc(category).pluck(:name)
+    Test.of_category(category).pluck(:name)
   end
 end
