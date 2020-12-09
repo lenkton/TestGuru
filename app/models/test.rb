@@ -1,10 +1,4 @@
 class Test < ApplicationRecord
-
-  scope :easy, -> { where(level: [0..1]) }
-  scope :medium, -> { where(level: [2..4]) }
-  scope :hard, -> { where(level: [5..Float::INFINITY]) }
-  scope :of_level, ->(level) { where(level: level) }
-
   belongs_to :category
   belongs_to :author, class_name: :User
 
@@ -15,6 +9,11 @@ class Test < ApplicationRecord
   validates :name, :level, presence: true
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :name, uniqueness: { scope: :level, message: 'Тест с таким уровнем и именем уже существует' }
+
+  scope :easy, -> { where(level: [0..1]) }
+  scope :medium, -> { where(level: [2..4]) }
+  scope :hard, -> { where(level: [5..Float::INFINITY]) }
+  scope :of_level, ->(level) { where(level: level) }
 
   def self.from_category(category)
     Category.tests_from_category_desc(category).pluck(:name)
