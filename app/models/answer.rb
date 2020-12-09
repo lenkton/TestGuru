@@ -3,5 +3,5 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  validates :question, :text, :correct, presence: true
+  validates :text, :correct, presence: true
 end
