@@ -1,7 +1,12 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  validates :text, :correct, presence: true
+  validates :text, presence: true
+  validate :validate_num_of_answers, on: :create
 
   scope :correct, -> { where(correct: true) }
+
+  def validate_num_of_answers
+    errors.add(:question) if question.nil? || question.answers.count >= 4
+  end
 end

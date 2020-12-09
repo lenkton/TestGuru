@@ -4,5 +4,4 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   validates :text, presence: true
-  validates :answers, length: { in: 1..4 }
 end
