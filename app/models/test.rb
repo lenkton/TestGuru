@@ -12,7 +12,7 @@ class Test < ApplicationRecord
   has_many :test_taking_sessions, dependent: :destroy
   has_many :test_takers, through: :test_taking_sessions, source: :user
 
-  validates :name, :level, :author, :category, presence: true
+  validates :name, :level, presence: true
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :name, uniqueness: { scope: :level, message: 'Тест с таким уровнем и именем уже существует' }
 
