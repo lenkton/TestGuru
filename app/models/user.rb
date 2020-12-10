@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :test_taking_sessions, dependent: :destroy
   has_many :taken_tests, through: :test_taking_sessions, source: :test
 
+  validates :name, presence: true
+
   def participated_tests(level)
-    taken_tests.where(level: level)
+    taken_tests.of_level(level)
   end
 end

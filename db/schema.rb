@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_200644) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["name", "level"], name: "index_tests_on_name_and_level"
   end
 
   create_table "users", force: :cascade do |t|
