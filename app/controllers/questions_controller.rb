@@ -20,4 +20,9 @@ class QuestionsController < ApplicationController
     q.save
     render html: "Вопрос \"#{q.text}\" был успешно создан!<br><a href=\".\">See the test</a>".html_safe
   end
+
+  def destroy
+    Question.find(params[:id].to_i).destroy
+    render html: "Вопрос был успешно удалён!"
+  end
 end
