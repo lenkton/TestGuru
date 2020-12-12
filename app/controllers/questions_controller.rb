@@ -15,5 +15,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    q = Question.new(params.require(:question).permit(:text, :test))
+    q.test_id = params[:test_id].to_i
+    q.save
+    render html: "Вопрос \"#{q.text}\" был успешно создан!<br><a href=\".\">See the test</a>".html_safe
   end
 end

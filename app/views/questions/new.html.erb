@@ -1,4 +1,6 @@
 <h1>Create a question</h1>
-<form method="POST" action="/tests/1/questions">
-  <input type="text" name="text">
+<form method="POST" action="."> # 
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name="question[text]">
+  <input type="submit">
 </form>
