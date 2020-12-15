@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :find_test
+
+  rescue_from ActiveRecord::RecordNotFound, with: :resque_with_test_not_found
   
   def index
     render html: test.questions
@@ -34,5 +36,9 @@ class QuestionsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:test_id].to_i)
+  end
+
+  def resque_with_test_not_found
+    render html: 'Теста с таким номером не существует'
   end
 end
