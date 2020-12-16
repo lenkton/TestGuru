@@ -5,12 +5,12 @@ class QuestionsController < ApplicationController
   
   def index
     render html: test.questions
-                     .map { |q| "<a href = #{test_question_path id: q.id} > #{q.text} </a>" }
+                     .map { |q| "<a href = #{test_questions_path id: q.id} > #{q.text} </a>" }
                      .join('<br>').html_safe
   end
 
   def show
-    question = Question.find(params[:id].to_i)
+    question = Question.find(params[:id])
     render html: "Question: #{question.text}<br>id: #{question.id} <br>"\
       "Answers:<br>#{question.answers.map(&:text).join('<br>')}".html_safe
   end
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    Question.find(params[:id].to_i).destroy
+    Question.find(params[:id]).destroy
     render html: "Вопрос был успешно удалён!"
   end
 
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
   attr_accessor :test
 
   def find_test
-    @test = Test.find(params[:test_id].to_i)
+    @test = Test.find(params[:test_id])
   end
 
   def resque_with_test_not_found
