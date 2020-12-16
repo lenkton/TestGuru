@@ -19,9 +19,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    if question.save
-      redirect_to question
+    @question = Question.new(question_params)
+    @test.questions.push(@question)
+    if @question.save
+      redirect_to @question
     else
       render :new
     end
@@ -35,8 +36,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params[:question][:test_id] = params[:test_id]
-    params.require(:question).permit(:text, :test_id)
+    params.require(:question).permit(:text)
   end
 
   def find_test
