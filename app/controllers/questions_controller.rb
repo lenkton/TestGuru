@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_test_not_found
   
   def index
-    render html: test.questions
+    render html: @test.questions
                      .map { |q| "<a href = #{question_path id: q.id} > #{q.text} </a>" }
                      .join('<br>').html_safe
   end
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def create
     q = Question.new(params.require(:question).permit(:text))
-    q.test = test
+    q.test = @test
     q.save
     render html: "Вопрос \"#{q.text}\" был успешно создан!<br><a href=\".\">See the test</a>".html_safe
   end
@@ -31,8 +31,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
-  attr_accessor :test
 
   def find_test
     @test = Test.find(params[:test_id])
