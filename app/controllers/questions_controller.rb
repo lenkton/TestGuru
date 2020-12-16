@@ -19,10 +19,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    q = Question.new(params.require(:question).permit(:text))
-    q.test = @test
-    q.save
-    render html: "Вопрос \"#{q.text}\" был успешно создан!<br><a href=\".\">See the test</a>".html_safe
+    question = Question.new(question_params)
+    if question.save
+      redirect_to question
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -31,6 +33,11 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def question_params
+    params[:question][:test_id] = params[:test_id]
+    params.require(:question).permit(:text, :test_id)
+  end
 
   def find_test
     @test = Test.find(params[:test_id])
