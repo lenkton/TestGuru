@@ -5,9 +5,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_test_not_found
   
   def index
-    render html: @test.questions
-                     .map { |q| "<a href = #{question_path id: q.id} > #{q.text} </a>" }
-                     .join('<br>').html_safe
+    @questions = @test.questions
   end
 
   def show
