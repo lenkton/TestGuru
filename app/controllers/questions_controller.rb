@@ -9,9 +9,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    question = @question
-    render html: "Question: #{question.text}<br>id: #{question.id} <br>"\
-      "Answers:<br>#{question.answers.map(&:text).join('<br>')}".html_safe
   end
 
   def new

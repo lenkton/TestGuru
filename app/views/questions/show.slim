@@ -1,0 +1,8 @@
+dl
+  dt Text:
+  dd #{@question.text}
+  dt id:
+  dd #{@question.id}
+  dt Answers:
+  dd
+    ol = render partial: 'answer', collection: @question.answers
