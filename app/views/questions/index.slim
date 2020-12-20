@@ -1,3 +1,4 @@
 h2 Questions of the Test "#{@test.name}"
 table
   == render @questions
+== link_to 'Add a question', new_test_question_path(@test)
