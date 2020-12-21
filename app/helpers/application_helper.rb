@@ -6,4 +6,8 @@ module ApplicationHelper
       "Create new #{question.test.name} question"
     end
   end
+
+  def current_year
+    Time.now.year
+  end
 end
