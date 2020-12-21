@@ -1,8 +1,5 @@
 h1 = question_header(@question)
-- if @question.errors.present?
-  h2 Errors detected:
-  ul 
-    = render partial: 'error', collection: @question.errors.full_messages
+== render 'shared/errors', resource: @question
 == form_with model: [@test, @question], local: true do |form|
   = form.label  :text, 'Question text:'
   = form.text_field :text
