@@ -6,7 +6,7 @@ dl
   dd #{@question.id}
   dt Answers:
   dd
-    ol == render partial: 'answer', collection: @question.answers
+    ol = render partial: 'answer', collection: @question.answers
 
 => link_to 'Edit', edit_question_path(@question)
 = link_to 'Delete',

@@ -1,4 +1,4 @@
 = link_to 'To tests', tests_path
 h1 = @test.name
-table == render @test.questions
+table = render @test.questions
 = link_to 'Add a question', new_test_question_path(@test)
