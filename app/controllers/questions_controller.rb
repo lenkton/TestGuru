@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_test_not_found
   
   def index
-    @questions = @test.questions
+    redirect_to @test
   end
 
   def show
