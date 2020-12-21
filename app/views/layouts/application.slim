@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title TestGuru
+    == csrf_meta_tags
+    == csp_meta_tag
+
+    == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    == yield
+
+    footer 
+      p &copy; #{Time.now.year} Sergey Antonov 
+        #{link_to 'TestGuru', 'https://github.com/lenkton/TestGuru'}
+      
+      p TestGuru is a service which provides an opportunity to create
+        and take tests
+
+      p Created with the help of #{link_to 'Thinknetica', 'https://thinknetica.com/'}
+
