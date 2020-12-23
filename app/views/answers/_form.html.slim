@@ -1,0 +1,15 @@
+= form_with model: [@question, @answer], local: true do |f|
+  - if @answer.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@answer.errors.count, "error")} prohibited this answer from being saved:"
+      ul
+        - @answer.errors.full_messages.each do |message|
+          li = message
+
+  = f.label  :text, 'Text:'
+  = f.text_field :text
+
+  = f.label  :correct, 'Correct:'
+  = f.check_box :correct
+
+  .actions = f.submit
