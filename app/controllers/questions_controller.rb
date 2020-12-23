@@ -1,22 +1,14 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[create new]
+  before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_test_not_found
-  
-  def index
-    render html: @test.questions
-                     .map { |q| "<a href = #{question_path id: q.id} > #{q.text} </a>" }
-                     .join('<br>').html_safe
-  end
 
   def show
-    question = @question
-    render html: "Question: #{question.text}<br>id: #{question.id} <br>"\
-      "Answers:<br>#{question.answers.map(&:text).join('<br>')}".html_safe
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def create
@@ -28,9 +20,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @question.destroy
-    render html: "Вопрос был успешно удалён!"
+    redirect_to test_path(@question.test)
   end
 
   private
