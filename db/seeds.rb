@@ -94,9 +94,9 @@ create_array_of!(
 create_array_of!(
   TestTakingSession,
   [
-    { user: users[2], test: tests[0] },
-    { user: users[2], test: tests[1] },
-    { user: users[2], test: tests[2] }
+    { user: users[2], test: tests[0], current_question: tests[0].questions.first, correct_questions: 0 },
+    { user: users[2], test: tests[1], current_question: tests[1].questions.first, correct_questions: 0 },
+    { user: users[2], test: tests[2], current_question: tests[2].questions.last, correct_questions: 0 }
   ],
   %i[user test]
 )
