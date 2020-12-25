@@ -16,6 +16,14 @@ class TestTakingSession < ApplicationRecord
     success_rate >= MINIMUM_SUCCESS_RATE
   end
 
+  def question_number
+    test.questions.order(:id).where('id <= ?', current_question.id).count
+  end
+
+  def questions_total
+    test.questions.count
+  end
+
   def is_completed?
     current_question.nil?
   end
