@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_200644) do
   create_table "test_taking_sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
-    t.integer "current_question_id", null: false
+    t.integer "current_question_id"
     t.integer "correct_questions", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

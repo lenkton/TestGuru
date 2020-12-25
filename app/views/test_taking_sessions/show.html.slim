@@ -1,13 +1,8 @@
-h1 Test Taking Session
-dl
-  dt Test
-  dd = @session.test.name
-
-  dt User
-  dd = @session.user.name
-
-  dt Current question
-  dd = @session.current_question.text
-
-  dt Correct Answers
-  dd = @session.correct_questions
+h1 = @session.test.name
+h2 = @session.current_question.text
+= form_with url: test_taking_session_path(@session), local: true, method: :put do |form|
+  ul = form.collection_check_boxes :answer_ids, @session.current_question.answers, :id, :text, include_hidden: false do |boxes|
+    li 
+      = boxes.check_box
+      =< boxes.label
+  = form.submit 'Next'
