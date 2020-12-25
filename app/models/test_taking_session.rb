@@ -6,6 +6,16 @@ class TestTakingSession < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
+  MINIMUM_SUCCESS_RATE = 85
+
+  def success_rate
+    100 * correct_questions / test.questions.count
+  end
+
+  def successful?
+    success_rate >= MINIMUM_SUCCESS_RATE
+  end
+
   def is_completed?
     current_question.nil?
   end

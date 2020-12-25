@@ -1,3 +1,6 @@
-h1 Congratulations!
-p the test #{@session.test.name} has been passed with the total score of #{@session.correct_questions}
+- if @session.successful?
+  == render 'success'
+- else
+  == render 'failure'
+
 = link_to 'Back', tests_path
