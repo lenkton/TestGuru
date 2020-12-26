@@ -1,4 +1,5 @@
 - if resource.errors.present?
-  h2 Errors detected:
-  ul 
-    = render partial: 'shared/error', collection: resource.errors.full_messages
+  #error_explanation
+    h2 Errors detected:
+    ul 
+      = render partial: 'shared/error', collection: resource.errors.full_messages

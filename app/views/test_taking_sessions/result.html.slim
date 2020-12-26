@@ -1,0 +1,6 @@
+- if @session.successful?
+  == render 'success'
+- else
+  == render 'failure'
+
+= link_to 'Back', tests_path

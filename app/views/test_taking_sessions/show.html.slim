@@ -1,0 +1,10 @@
+h1 = @session.test.name
+h2 
+  = @session.current_question.text
+  | (#{@session.question_number}/#{@session.questions_total})
+= form_with url: test_taking_session_path(@session), local: true, method: :put do |form|
+  ul = form.collection_check_boxes :answer_ids, @session.current_question.answers, :id, :text, include_hidden: false do |boxes|
+    li 
+      = boxes.check_box
+      =< boxes.label
+  = form.submit 'Next'
