@@ -20,9 +20,9 @@ categories =
 users =
   create_array_of!(
     User,
-    [{ name: 'Thinknetica' },
-     { name: 'Bill Gates' },
-     { name: 'Sergey Antonov' }],
+    [{ name: 'Thinknetica', password: 'Thinknetica' },
+     { name: 'Bill Gates', password: '1xCD9k44jd' },
+     { name: 'Sergey Antonov', password: '123' }],
     [:name]
   )
 
