@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :name, presence: true
+  validates :name, :email, presence: true
 
   def participated_tests(level)
     taken_tests.of_level(level)
