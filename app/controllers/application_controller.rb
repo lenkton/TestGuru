@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
-  helper_method :current_user
+  helper_method :current_user,
+                :logged_in?
 
   private
 
   def authenticate_user!
     unless logged_in?
-      redirect_to login_path
+      redirect_to login_path, alert: 'This resource requires authentication'
     end
   end
 
