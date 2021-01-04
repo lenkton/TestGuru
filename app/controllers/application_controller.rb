@@ -6,11 +6,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user,
                 :logged_in?
 
+  protected
+
+  def original_destination
+    session[:original_destination] || root_path
+  end
+
   private
 
   def authenticate_user!
     unless logged_in?
-      session[:destination] = self.url_for
+      session[:original_destination] = self.url_for
       redirect_to login_path, alert: 'This resource requires authentication'
     end
   end

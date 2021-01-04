@@ -12,12 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
 
-      if session[:destination]&.empty?
-        redirect_to session[:destination]
-        session[:destination].clear
-      else
-        redirect_to tests_path
-      end
+      redirect_to original_destination
     else
       render :new
     end
