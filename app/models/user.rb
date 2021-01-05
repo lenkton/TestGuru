@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :email, uniqueness: {message: 'Пользователь с таким именем уже существует!'}
-  validates :email, format: {with: /\A[\w\-\.]+@([\w-]+\.){1,}[a-z]+\z/i, message: 'Неверный формат адреса электронной почты!'}
+  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP, message: 'Неверный формат адреса электронной почты!'}
 
   def participated_tests(level)
     taken_tests.of_level(level)
