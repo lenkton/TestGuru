@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def original_destination
-    session[:original_destination] || root_path
+    session.delete(:original_destination) || root_path
   end
 
   private
