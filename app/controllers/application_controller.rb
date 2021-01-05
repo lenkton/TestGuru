@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless logged_in?
-      session[:original_destination] = self.url_for
+      session[:original_destination] = request.path
       redirect_to login_path, alert: 'This resource requires authentication'
     end
   end
