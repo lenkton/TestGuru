@@ -1,0 +1,13 @@
+h1.nav = link_to 'Test Guru', root_path
+
+- if logged_in?
+  p.nav.user Welcome, #{current_user.name} Guru!
+  p.nav = button_to 'Quit', session_path(current_user.id), method: :delete
+    / note: current_user.id is actually a placeholder.
+      The value is not used in the session controller,
+      so every not nil value is fine by now
+      (and we have no session_id at the moment)
+
+- else
+  p.nav = link_to 'Create an account', signup_path
+  p.nav = link_to 'Sign in', login_path

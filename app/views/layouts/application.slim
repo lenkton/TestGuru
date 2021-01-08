@@ -9,6 +9,8 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    header = render 'shared/header'
+    
     == yield
 
     footer = render 'shared/footer'

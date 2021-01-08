@@ -56,13 +56,16 @@ ActiveRecord::Schema.define(version: 2020_12_01_200644) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["name", "level"], name: "index_tests_on_name_and_level"
+    t.index ["name", "level"], name: "index_tests_on_name_and_level", unique: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "answers", "questions"
