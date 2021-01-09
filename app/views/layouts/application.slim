@@ -11,6 +11,9 @@ html
   body
     header = render 'shared/header'
     
+    p.notice = notice
+    p.alert = alert
+    
     == yield
 
     footer = render 'shared/footer'
