@@ -10,9 +10,8 @@ html
 
   body
     header = render 'shared/header'
-    
-    p.notice = notice
-    p.alert = alert
+
+    = render 'shared/flash'
     
     == yield
 
