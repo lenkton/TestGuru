@@ -22,7 +22,7 @@ users =
     User,
     [{ name: 'Thinknetica', password: 'Thinknetica', email: 'think@neti.ca' },
      { name: 'Bill Gates', password: '1xCD9k44jd', email: 'bill@gat.es' },
-     { name: 'Sergey Antonov', password: '123', email: 'sergey@anton.ov' }],
+     { name: 'Sergey Antonov', password: '123qwe', email: 'sergey@anton.ov' }],
     [:email]
   )
 
