@@ -20,9 +20,9 @@ categories =
 users =
   create_array_of!(
     User,
-    [{ name: 'Thinknetica', password: 'Thinknetica', email: 'think@neti.ca' },
-     { name: 'Bill Gates', password: '1xCD9k44jd', email: 'bill@gat.es' },
-     { name: 'Sergey Antonov', password: '123qwe', email: 'sergey@anton.ov' }],
+    [{ password: 'Thinknetica', email: 'think@neti.ca' },
+     { password: '1xCD9k44jd', email: 'bill@gat.es' },
+     { password: '123qwe', email: 'sergey@anton.ov' }],
     [:email]
   )
 
