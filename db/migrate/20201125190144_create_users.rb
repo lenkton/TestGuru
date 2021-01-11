@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :name, null: false
       t.string :email, null: false, index: {unique: true}, default: ''
+      t.string :type, null: false, index: true, default: 'User'
 
       t.timestamps
     end

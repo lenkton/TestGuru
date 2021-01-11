@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_204744) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
+    t.string "type", default: "User", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_204744) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["type"], name: "index_users_on_type"
   end
 
   add_foreign_key "answers", "questions"
