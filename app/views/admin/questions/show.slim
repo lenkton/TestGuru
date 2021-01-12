@@ -1,4 +1,4 @@
-= link_to 'Back to questions', test_path(@question.test)
+= link_to 'Back to questions', admin_test_path(@question.test)
 
 dl
   dt Text:
@@ -8,10 +8,10 @@ dl
   dt Answers:
   dd
     ol = render @question.answers
-    = link_to 'New answer', new_question_answer_path(@question)
+    = link_to 'New answer', new_admin_question_answer_path(@question)
 
-=> link_to 'Edit', edit_question_path(@question)
+=> link_to 'Edit', edit_admin_question_path(@question)
 = link_to 'Delete',
-          question_path(@question),
+          admin_question_path(@question),
           method: :delete,
           data: {confirm: "Do you want to delete the question '#{@question.text}'?"}
