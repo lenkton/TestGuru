@@ -1,8 +1,12 @@
-class TestsController < ApplicationController
+class Admin::TestsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
     @tests = Test.all
+  end
+
+  def show
+    @test = Test.find(params[:id])
   end
 
   def start
