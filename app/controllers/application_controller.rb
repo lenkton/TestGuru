@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
+  protected
+
+  def find_test
+    @test = Test.find(params[:id])
+  end
 
   def is_admin?
     current_user.is_a?(Admin)

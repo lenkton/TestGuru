@@ -46,10 +46,6 @@ class Admin::QuestionsController < Admin::BaseController
     params.require(:question).permit(:text)
   end
 
-  def find_test
-    @test = Test.find(params[:test_id])
-  end
-
   def resque_with_test_not_found
     render html: 'Теста или вопроса с таким номером не существует'
   end

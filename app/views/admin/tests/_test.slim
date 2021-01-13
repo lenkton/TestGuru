@@ -1,4 +1,9 @@
 tr
   td = link_to test.name, admin_test_path(test)
   td = test.questions.size
+  td = link_to 'Edit', edit_admin_test_path(test)
+  td = link_to 'Delete',
+               admin_test_path(test),
+               method: :delete,
+               data: {confirm: "Do you want to delete the test '#{test.name}'?"}
   
