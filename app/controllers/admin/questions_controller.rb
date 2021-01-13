@@ -42,6 +42,10 @@ class Admin::QuestionsController < Admin::BaseController
     @question = Question.find(params[:id])
   end
 
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
   def question_params
     params.require(:question).permit(:text)
   end

@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def find_test
-    @test = Test.find(params[:id])
-  end
-
   def is_admin?
     current_user.is_a?(Admin)
   end
