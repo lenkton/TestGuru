@@ -20,4 +20,8 @@ module ApplicationHelper
       content_tag :p, flash[type], class: "flash #{type}"
     end
   end
+
+  def is_admin?
+    current_user.is_a?(Admin)
+  end
 end
