@@ -1,7 +1,8 @@
 h1.nav = link_to 'Test Guru', root_path
 
 - if user_signed_in?
-  p.nav.user Welcome, #{current_user.name} Guru!
+  - if is_admin?
+    = link_to "to admin's", admin_tests_path
   p.nav = button_to 'Quit', destroy_user_session_path, method: :delete
 
 - else
