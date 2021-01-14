@@ -3,9 +3,8 @@ class User < ApplicationRecord
   has_many :test_taking_sessions, dependent: :destroy
   has_many :taken_tests, through: :test_taking_sessions, source: :test
 
-  validates :name, :email, presence: true
-  validates :email, uniqueness: true
-  validates :email, format: URI::MailTo::EMAIL_REGEXP
+  validates :name, presence: true
+  validates :email, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true, presence: true
 
   devise :database_authenticatable,
          :registerable,
