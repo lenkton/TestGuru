@@ -1,15 +1,18 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable
-
   has_many :tests, foreign_key: :author_id, dependent: :destroy
   has_many :test_taking_sessions, dependent: :destroy
   has_many :taken_tests, through: :test_taking_sessions, source: :test
 
   validates :name, :email, presence: true
-  validates :email, uniqueness: {message: 'Пользователь с таким именем уже существует!'}
-  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP, message: 'Неверный формат адреса электронной почты!'}
+  validates :email, uniqueness: true
+  validates :email, format: URI::MailTo::EMAIL_REGEXP
+
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
 
   def participated_tests(level)
     taken_tests.of_level(level)
