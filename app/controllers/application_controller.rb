@@ -3,19 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
-  helper_method :is_admin?
-
   def after_sign_in_path_for(resource)
-    if is_admin?
+    if current_user.admin?
       admin_root_path
     else
       root_path
     end
-  end
-
-  protected
-
-  def is_admin?
-    current_user.is_a?(Admin)
   end
 end

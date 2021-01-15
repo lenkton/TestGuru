@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def test_taking_session(test)
     test_taking_sessions.order(id: :desc).find_by(test_id: test.id)
   end
+
+  def admin?
+    is_a?(Admin)
+  end
 end
