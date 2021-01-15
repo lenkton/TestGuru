@@ -10,6 +10,7 @@ class TestTakingSessionsController < ApplicationController
     @session.accept!(params[:answer_ids])
 
     if @session.is_completed?
+      TestsMailer.completed_test(@session).deliver_now
       redirect_to result_test_taking_session_path(@session)
     else
       render :show

@@ -1,13 +1,17 @@
 class User < ApplicationRecord
-  has_many :tests, foreign_key: :author_id, dependent: :destroy
+  has_many :authored_tests, class_name: :Test, foreign_key: :author_id, dependent: :destroy
   has_many :test_taking_sessions, dependent: :destroy
   has_many :taken_tests, through: :test_taking_sessions, source: :test
 
-  has_secure_password
+  validates :name, presence: true
+  validates :email, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true, presence: true
 
-  validates :name, :email, presence: true
-  validates :email, uniqueness: {message: 'Пользователь с таким именем уже существует!'}
-  validates :email, format: {with: URI::MailTo::EMAIL_REGEXP, message: 'Неверный формат адреса электронной почты!'}
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
 
   def participated_tests(level)
     taken_tests.of_level(level)
@@ -15,5 +19,9 @@ class User < ApplicationRecord
 
   def test_taking_session(test)
     test_taking_sessions.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end

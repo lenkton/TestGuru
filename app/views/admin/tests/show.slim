@@ -1,0 +1,4 @@
+= link_to 'To tests', admin_tests_path
+h1 = @test.name
+table = render @test.questions
+= link_to 'Add a question', new_admin_test_question_path(@test)

@@ -1,0 +1,14 @@
+h1 = @answer.question.text
+
+dl
+  dt Answer:
+  dd = @answer.text
+
+  dt Correct:
+  dd = @answer.correct
+
+=> link_to 'Edit', edit_admin_answer_path(@answer)
+'|
+=<> link_to 'Delete', admin_answer_path(@answer), data: {confirm: 'Are you sure?'}, method: :delete
+'|
+=< link_to 'Back', admin_question_path(@answer.question)
