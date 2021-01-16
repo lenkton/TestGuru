@@ -27,5 +27,4 @@ If registered, has a set of results.
 Ruby version used: 2.7.2
 
 Notice: if you want gist posting to be supported in the app,
-set the environment variable 'GITHUB_TOKEN' to the token
-(which has an access to posting gists), when you start the application.
+set correct login parameters in your .netrc file before launching

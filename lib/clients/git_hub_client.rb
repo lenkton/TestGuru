@@ -13,6 +13,6 @@ class GitHubClient
   private
 
   def setup_git_hub_client
-    Octokit::Client.new(access_token: ACCESS_TOKEN)
+    Octokit::Client.new(netrc: true)
   end
 end
