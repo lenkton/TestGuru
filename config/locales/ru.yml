@@ -1,5 +1,9 @@
 ---
 ru:
+  test_taking_sessions:
+    gist:
+      success: "Gist успешно создан!"
+      failure: "Во время сохранения gist произошла ошибка"
   errors:
     messages:
       already_confirmed: уже подтверждён. Пожалуйста, попробуйте войти в систему

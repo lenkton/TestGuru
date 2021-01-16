@@ -1,5 +1,5 @@
 class TestTakingSessionsController < ApplicationController
-  before_action :find_session, only: %i[show result update]
+  before_action :find_session, only: %i[show result update gist]
   def show
   end
 
@@ -15,6 +15,18 @@ class TestTakingSessionsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@session.current_question).call
+
+    flash_options = if result.success?
+      {notice: t('.success')}
+    else
+      {alert: t('.failure')}
+    end
+
+    redirect_to @session, flash_options
   end
 
   private
