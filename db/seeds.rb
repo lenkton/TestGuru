@@ -100,3 +100,10 @@ create_array_of!(
   ],
   %i[user test]
 )
+create_array_of!(
+  Gist,
+  [
+    {creator: users[2], gist_hash: '0e9a5d0173d6a4dbff1b72436c2a070b', question: questions[6]}
+  ],
+  [:url]
+)
