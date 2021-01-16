@@ -2,7 +2,7 @@
 ru:
   test_taking_sessions:
     gist:
-      success: "Gist успешно создан!"
+      success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
   errors:
     messages:

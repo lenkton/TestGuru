@@ -21,7 +21,7 @@ class TestTakingSessionsController < ApplicationController
     result = GistQuestionService.new(@session.current_question).call
 
     flash_options = if result
-      {notice: t('.success')}
+      {notice: t('.success', link: result[:html_url])} #... result[:html_url]
     else
       {alert: t('.failure')}
     end
