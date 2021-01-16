@@ -35,3 +35,6 @@ en:
     gist:
       success: "Gist was created successfully: %{link}"
       failure: "An error occured while saving the gist"
+  services:
+    gist_question_service:
+      gist_description: "A question about %{test_name} from TestGuru"
