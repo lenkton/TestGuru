@@ -20,11 +20,15 @@ class TestTakingSessionsController < ApplicationController
   def gist
     result = GistQuestionService.new(@session.current_question).call
 
-    flash_options = if result
-      {notice: t('.success', link: result[:html_url])} #... result[:html_url]
-    else
-      {alert: t('.failure')}
-    end
+    @gist = Gist.new(gist_hash: result.id,
+                     creator: current_user,
+                     question: @session.current_question)
+
+    flash_options = if @gist.save
+                      { notice: t('.success', link: @gist.url) }
+                    else
+                      { alert: t('.failure') }
+                    end
 
     redirect_to @session, flash_options
   end
