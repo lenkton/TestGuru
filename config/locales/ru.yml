@@ -4,6 +4,13 @@ ru:
     gist:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
+  admin:
+    gists:
+      index:
+        creator: Создал
+        gist_url: Ссылка на gist
+        gists: Список созданных пользователями gist'ов
+        question: Вопрос
   services:
     gist_question_service:
       gist_description: "Вопрос по теме \"%{test_name}\" от TestGuru"
