@@ -2,6 +2,6 @@
 
 module TestGuru
   class Application
-    APP_VERSION = '0.11.0'.freeze
+    APP_VERSION = '0.12.0'.freeze
   end
 end
