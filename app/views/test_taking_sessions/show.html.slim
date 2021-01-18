@@ -7,5 +7,5 @@ p
     li 
       = boxes.check_box
       =< boxes.label
-  p = link_to 'Gist Question', gist_test_taking_session_path(@session), method: :post
+  p = link_to 'Gist Question', test_taking_session_gists_path(@session), method: :post
   p = form.submit 'Next'

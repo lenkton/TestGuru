@@ -1,7 +1,7 @@
 ---
 ru:
-  test_taking_sessions:
-    gist:
+  gists:
+    create:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
   admin:

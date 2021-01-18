@@ -31,8 +31,8 @@
 
 en:
   hello: "Hello world"
-  test_taking_sessions:
-    gist:
+  gists:
+    create:
       success: "Gist was created successfully: %{link}"
       failure: "An error occured while saving the gist"
   admin:
