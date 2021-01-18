@@ -16,21 +16,13 @@ function sortRowsByTitle(){
 
   if(this.querySelector('.octicon-arrow-up').classList.contains('hide')){
     sortedRows.sort(compareRowsAscending)
-    this.querySelector('.octicon-arrow-up').classList.remove('hide')
-    this.querySelector('.octicon-arrow-down').classList.add('hide')
+    arrowUp(this)
   } else {
     sortedRows.sort(compareRowsDescending)
-    this.querySelector('.octicon-arrow-up').classList.add('hide')
-    this.querySelector('.octicon-arrow-down').classList.remove('hide')
+    arrowDown(this)
   }
 
-  var sortedTBody = document.createElement('tbody')
-
-  for (var i = 0; i < sortedRows.length; i++){
-    sortedTBody.appendChild(sortedRows[i])
-  }
-
-  table.replaceChild(sortedTBody, table.querySelector('tbody'))
+  replaceTBody(table, sortedRows)
 }
 
 function compareRowsAscending(row1, row2){
@@ -44,4 +36,24 @@ function compareRowsAscending(row1, row2){
 
 function compareRowsDescending(row1, row2){
   return compareRowsAscending(row2, row1)
+}
+
+function replaceTBody(table, rows){
+  var newTBody = document.createElement('tbody')
+
+  for (var i = 0; i < rows.length; i++){
+    newTBody.appendChild(rows[i])
+  }
+
+  table.replaceChild(newTBody, table.querySelector('tbody'))
+}
+
+function arrowUp(parentElem){
+  parentElem.querySelector('.octicon-arrow-up').classList.remove('hide')
+  parentElem.querySelector('.octicon-arrow-down').classList.add('hide')
+}
+
+function arrowDown(parentElem){
+  parentElem.querySelector('.octicon-arrow-up').classList.add('hide')
+  parentElem.querySelector('.octicon-arrow-down').classList.remove('hide')
 }
