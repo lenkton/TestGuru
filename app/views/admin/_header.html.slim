@@ -1,7 +1,9 @@
 h1 TestGuru Admin Panel
 
 .user
-  => link_to "to user's", root_path
+  => link_to 'Gists', admin_gists_path
+  '|
+  =<> link_to "to user's", root_path
   '|
   b.name =<> current_user.name
   '|

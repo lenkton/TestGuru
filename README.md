@@ -1,6 +1,6 @@
 # README
 
-Ruby version used: 2.7.2
+## Models
 
 In the model of the project the following entities are created:
 
@@ -21,3 +21,10 @@ If not in the set of the right answers, considered to be wrong.
 If registered, has a set of results.
 
 * Author is a user who has created a test (or several tests).
+
+## Launching the application
+
+Ruby version used: 2.7.2
+
+Notice: if you want gist posting to be supported in the app,
+set correct login parameters in your .netrc file before launching

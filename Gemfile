@@ -34,6 +34,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', '~> 4.0'
 
+# NETWORKING
+
+gem 'faraday'
+
+# GITHUB
+
+gem "octokit", "~> 4.0"
+
+gem 'netrc', '~> 0.11.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

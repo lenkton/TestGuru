@@ -1,0 +1,10 @@
+h1 = t('.gists')
+table
+  thead
+    tr
+      th = t('.question')
+      th = t('.gist_url')
+      th = t('.creator')
+  tbody
+    = render @gists
+p = link_to 'Back', admin_root_path

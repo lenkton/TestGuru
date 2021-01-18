@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :test_taking_sessions, only: %i[show update] do
+    resources :gists, only: [:create]
+    
     member do
       get :result
     end
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+
+    resources :gists, only: :index
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
