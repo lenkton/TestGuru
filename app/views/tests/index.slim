@@ -1,4 +1,12 @@
 h1 Tests
-table
-  = render @tests
+table.table
+  thead
+    th.sort-by-title.pointer
+      | Title
+      = octicon 'arrow-up', class: 'hide'
+      = octicon 'arrow-down', class: 'hide'
+    th Questions
+    th Actions
+  tbody
+    = render @tests
   
