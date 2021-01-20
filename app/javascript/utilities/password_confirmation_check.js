@@ -1,12 +1,12 @@
 document.addEventListener('turbolinks:load', function(){
-  var control = document.querySelector('.password-confirmation-check')
+  var control = document.getElementById('user_password_confirmation')
   if (control) control.addEventListener('input', checkConfirmation)
 })
 
 function checkConfirmation(){
-  const originalField = this.parentElement.parentElement.querySelector('.password-confirmation-password')
-  errorMark = this.parentElement.querySelector('.error-mark')
-  successMark = this.parentElement.querySelector('.success-mark')
+  const originalField = document.getElementById('user_password')
+  errorMark = document.getElementById('error-mark')
+  successMark = document.getElementById('success-mark')
 
   if(this.value == ""){
     errorMark.classList.add('hide')

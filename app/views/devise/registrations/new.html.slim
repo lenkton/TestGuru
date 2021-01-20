@@ -18,13 +18,13 @@ h2
         = @minimum_password_length
         |  characters minimum)
     br
-    = f.password_field :password, autocomplete: "new-password", class: 'password-confirmation-password'
+    = f.password_field :password, autocomplete: "new-password"
   .field
     = f.label :password_confirmation
-    =< octicon 'x-circle', class: 'error-mark hide', fill: 'red'
-    =< octicon 'check-circle', class: 'success-mark hide', fill: 'green'
+    =< octicon 'x-circle', class: 'hide', fill: 'red', id: 'error-mark'
+    =< octicon 'check-circle', class: 'hide', fill: 'green', id: 'success-mark'
     br
-    = f.password_field :password_confirmation, autocomplete: "new-password", class: 'password-confirmation-check'
+    = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
