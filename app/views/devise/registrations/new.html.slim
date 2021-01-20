@@ -21,6 +21,8 @@ h2
     = f.password_field :password, autocomplete: "new-password"
   .field
     = f.label :password_confirmation
+    =< octicon 'x-circle', class: 'hide', fill: 'red', id: 'error-mark'
+    =< octicon 'check-circle', class: 'hide', fill: 'green', id: 'success-mark'
     br
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
