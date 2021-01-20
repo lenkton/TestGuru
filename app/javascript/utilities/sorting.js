@@ -7,35 +7,23 @@ document.addEventListener('turbolinks:load', function(){
 function sortRowsByTitle(){
   var table = document.querySelector('table')
 
-  var rows = table.querySelector('tbody').querySelectorAll('tr')
-  var sortedRows = []
+  isAscending = this.querySelector('.octicon-arrow-up').classList.contains('hide')
 
-  for (var i = 0; i < rows.length; i++){
-    sortedRows.push(rows[i])
-  }
-
-  if(this.querySelector('.octicon-arrow-up').classList.contains('hide')){
-    sortedRows.sort(compareRowsAscending)
+  if(isAscending){
     arrowUp(this)
   } else {
-    sortedRows.sort(compareRowsDescending)
     arrowDown(this)
   }
 
-  replaceTBody(table, sortedRows)
-}
-
-function compareRowsAscending(row1, row2){
-  var title1 = row1.querySelector('td').textContent
-  var title2 = row2.querySelector('td').textContent
-  
-  if (title1 > title2) return 1
-  if (title1 < title2) return -1
-  return 0
-}
-
-function compareRowsDescending(row1, row2){
-  return compareRowsAscending(row2, row1)
+  replaceTBody(
+    table,
+    Array
+      .from(table.querySelector('tbody').rows)
+      .sort((rowA, rowB) =>
+        // the logic mess below is an implementation of a xor operator
+        (rowA.cells[0].innerHTML > rowB.cells[0].innerHTML ? isAscending : !isAscending) ? 1 : -1
+      )
+  )
 }
 
 function replaceTBody(table, rows){
