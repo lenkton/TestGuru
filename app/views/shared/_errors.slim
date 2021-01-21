@@ -1,4 +1,4 @@
-- if resource.errors.present?
+- if resource.present? && resource.errors.present?
   #error_explanation
     h2 Errors detected:
     ul 

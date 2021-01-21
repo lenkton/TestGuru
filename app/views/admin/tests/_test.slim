@@ -1,9 +1,11 @@
 tr
-  td = link_to test.name, admin_test_path(test)
-  td = test.questions.size
-  td = link_to 'Edit', edit_admin_test_path(test)
-  td = link_to 'Delete',
-               admin_test_path(test),
-               method: :delete,
-               data: {confirm: "Do you want to delete the test '#{test.name}'?"}
+  td class='align-middle'
+    = link_to test.name, admin_test_path(test)
+    = render 'form_inline', test: test == @test ? @test : test
+  td class='align-middle' = test.questions.size
+  td class='align-middle' = link_to 'Edit', edit_admin_test_path(test)
+  td class='align-middle' = link_to 'Delete',
+                                    admin_test_path(test),
+                                    method: :delete,
+                                    data: {confirm: "Do you want to delete the test '#{test.name}'?"}
   

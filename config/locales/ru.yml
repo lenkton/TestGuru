@@ -5,6 +5,9 @@ ru:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
   admin:
+    tests:
+      form_inline:
+        submit: ОК
     gists:
       index:
         creator: Создал

@@ -36,6 +36,9 @@ en:
       success: "Gist was created successfully: %{link}"
       failure: "An error occured while saving the gist"
   admin:
+    tests:
+      form_inline:
+        submit: OK
     gists:
       index:
         creator: Creator
