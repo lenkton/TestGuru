@@ -1,9 +1,15 @@
 tr
   td class='align-middle'
-    = link_to test.name, admin_test_path(test)
+    = link_to test.name,
+              admin_test_path(test),
+              class: 'test-name',
+              data: {test_id: test.id}
     = render 'form_inline', test: test == @test ? @test : test
   td class='align-middle' = test.questions.size
-  td class='align-middle' = link_to 'Edit', edit_admin_test_path(test)
+  td class='align-middle' = link_to 'Edit',
+                                    edit_admin_test_path(test),
+                                    data: {test_id: test.id},
+                                    class: 'form-inline-link'
   td class='align-middle' = link_to 'Delete',
                                     admin_test_path(test),
                                     method: :delete,
