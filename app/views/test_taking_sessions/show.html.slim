@@ -1,7 +1,7 @@
 h1 = @session.test.name
 #progress-bar
   - @session.questions_total.times do |i|
-      .progress-cell id="progress-cell-#{i + 1}" data-question-number=(i + 1)
+      .progress-cell data-question-number=(i + 1)
 
 .question#question data-question-number=@session.question_number
   p
