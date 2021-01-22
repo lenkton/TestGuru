@@ -8,6 +8,6 @@ function markProgress(progressBar){
   questionNumber = document.getElementById('question').dataset.questionNumber
   Array
     .from(progressBar.querySelectorAll('.progress-cell'))
-    .filter((elem) => elem.dataset.questionNumber < questionNumber)
+    .filter((elem) => elem.dataset.cellNumber < questionNumber)
     .forEach((elem) => elem.style.backgroundColor = 'green')
 }
