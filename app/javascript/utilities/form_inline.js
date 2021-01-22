@@ -1,10 +1,10 @@
 document.addEventListener('turbolinks:load', function(){
   var controls = document.querySelectorAll('.form-inline-link')
 
-  if (controls.length){
-    for (var i = 0; i < controls.length; i++){
-      controls[i].addEventListener('click', formInlineLinkHandler)
-    }
+  if (!controls.length) return
+
+  for (var i = 0; i < controls.length; i++){
+    controls[i].addEventListener('click', formInlineLinkHandler)
   }
 
   var errors = document.getElementById('resource-errors')
