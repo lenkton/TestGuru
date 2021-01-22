@@ -7,3 +7,15 @@
   color: red;
   font-weight: bold;
 }
+
+.progress-cell{
+  width: 80px;
+  height: 20px;
+  background-color: darkgray;
+  display: inline-block;
+  margin-right: 10px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}

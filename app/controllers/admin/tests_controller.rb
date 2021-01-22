@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show edit update destroy]
+  before_action :find_test, only: %i[show edit update update_inline destroy]
 
   def index
     @tests = Test.all
@@ -33,6 +33,15 @@ class Admin::TestsController < Admin::BaseController
       render :edit
     end
   end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path
+    else
+      @tests = Test.all
+      render :index
+    end
+  end 
 
   def destroy
     @test.destroy
