@@ -1,0 +1,18 @@
+h1 Listing badges
+
+table
+  thead
+    tr
+      th Name
+      th Image url
+      th Condition
+      th
+      th
+      th
+
+  tbody
+    = render @badges
+
+br
+
+= link_to 'New Badge', new_admin_badge_path

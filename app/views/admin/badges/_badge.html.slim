@@ -1,0 +1,7 @@
+tr
+  td = badge.name
+  td = link_to badge.image_url, badge.image_url
+  td = link_to badge.condition.name, admin_condition_path(badge.condition)
+  td = link_to 'Show', admin_badge_path(badge)
+  td = link_to 'Edit', edit_admin_badge_path(badge)
+  td = link_to 'Destroy', admin_badge_path(badge), data: { confirm: 'Are you sure?' }, method: :delete

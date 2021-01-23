@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  =< @badge.name
+p
+  strong Image url:
+  =< link_to @badge.image_url, @badge.image_url
+p
+  strong Condition:
+  =< link_to @badge.condition.name, admin_condition_path(@badge.condition)
+
+=> link_to 'Edit', edit_admin_badge_path(@badge)
+'|
+=< link_to 'Back', admin_badges_path

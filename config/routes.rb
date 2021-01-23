@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conditions
   root 'tests#index'
   
   devise_for :users,
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
       get :result
     end
   end
+  
+  resources :badges, only: %i[index show]
 
   namespace :admin do
     root to: 'tests#index'
@@ -32,6 +35,9 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: :index
+
+    resources :badges
+    resources :conditions
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
