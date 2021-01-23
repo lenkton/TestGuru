@@ -94,9 +94,9 @@ create_array_of!(
 create_array_of!(
   TestTakingSession,
   [
-    { user: users[2], test: tests[0], current_question: tests[0].questions.first, correct_questions: 0 },
-    { user: users[2], test: tests[1], current_question: tests[1].questions.first, correct_questions: 0 },
-    { user: users[2], test: tests[2], current_question: tests[2].questions.last, correct_questions: 0 }
+    { user: users[2], test: tests[0], current_question: tests[0].questions.last, correct_questions: 2 },
+    { user: users[2], test: tests[1], current_question: nil, correct_questions: 3 },
+    { user: users[2], test: tests[2], current_question: nil, correct_questions: 3 }
   ],
   %i[user test]
 )
@@ -107,3 +107,40 @@ create_array_of!(
   ],
   [:url]
 )
+
+set_of_tests_solved_conditions =
+  create_array_of!(
+    SetOfTestsSolvedCondition,
+    [
+      {name: 'tests 2 and 3'}
+    ],
+    [:name]
+  )
+
+unless set_of_tests_solved_conditions[0].tests&.any?
+  set_of_tests_solved_conditions[0].tests.push([tests[1], tests[2]])
+end
+
+tries_count_conditions =
+  create_array_of!(
+    TriesCountCondition,
+    [
+      {name: 'need only 1 try', tries_count: 1}
+    ],
+    [:name]
+  )
+
+badges =
+  create_array_of!(
+    Badge,
+    [
+      {name: 'Badge for certain tests', image_url: "http://localhost:3000/123.png", condition: set_of_tests_solved_conditions[0]},
+      {name: 'Badge for the 1st triers', image_url: "http://localhost:3000/123.png", condition: tries_count_conditions[0]}
+    ],
+    [:name]
+  )
+
+unless badges[0].rewarded_users&.any?
+  badges[0].rewarded_users.push(users[2])
+  badges[1].rewarded_users.push(users[2])
+end
