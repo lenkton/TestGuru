@@ -134,8 +134,8 @@ badges =
   create_array_of!(
     Badge,
     [
-      {name: 'Badge for certain tests', image_url: "http://localhost:3000/123.png", condition: set_of_tests_solved_conditions[0]},
-      {name: 'Badge for the 1st triers', image_url: "http://localhost:3000/123.png", condition: tries_count_conditions[0]}
+      {name: 'Badge for certain tests', image_url: "http://localhost:3000/smile.bmp", condition: set_of_tests_solved_conditions[0]},
+      {name: 'Badge for the 1st triers', image_url: "http://localhost:3000/smile.bmp", condition: tries_count_conditions[0]}
     ],
     [:name]
   )
