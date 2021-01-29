@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   
   resources :badges, only: %i[index show]
+  resources :conditions, only: %i[show]
 
   namespace :admin do
     root to: 'tests#index'
