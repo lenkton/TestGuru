@@ -28,6 +28,8 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def update
+    @condition.test_ids = params[:condition][:test_ids] if @condition.is_a?(SetOfTestsSolvedCondition)
+
     if @condition.update(condition_params)
       flash[:notice] = 'Condition was successfully updated.'
       redirect_to admin_condition_path(@condition)

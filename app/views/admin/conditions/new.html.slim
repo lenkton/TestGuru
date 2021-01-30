@@ -1,5 +1,7 @@
 h1 New condition
 
-== render 'form'
+== render 'form',
+          action_url: admin_conditions_path,
+          action_method: :post
 
 = link_to 'Back', admin_conditions_path

@@ -1,4 +1,4 @@
-= form_with url: admin_conditions_path, method: :post, scope: :condition, local: true do |f|
+= form_with url: action_url, method: action_method, scope: :condition, local: true do |f|
   = render 'shared/errors', resource: @condition
 
   .field
