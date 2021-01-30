@@ -4,13 +4,11 @@
   .field
     => f.label :name
     = f.text_field :name
-  .field
-    => f.label :type
-    = f.collection_select :type,
-                          Condition.subclasses,
+
+  = f.collection_radio_buttons :type, Condition.subclasses,
                           :name,
-                          -> (type) { t(type.name) },
-                          prompt: true
+                          -> (type) { t(type.name) }
+
   = render 'specific_fields', form: f
 
   .actions = f.submit
