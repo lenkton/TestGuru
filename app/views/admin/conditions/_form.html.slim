@@ -1,0 +1,16 @@
+= form_with url: admin_conditions_path, method: :post, scope: :condition, local: true do |f|
+  = render 'shared/errors', resource: @condition
+
+  .field
+    => f.label :name
+    = f.text_field :name
+  .field
+    => f.label :type
+    = f.collection_select :type,
+                          Condition.subclasses,
+                          :name,
+                          -> (type) { t(type.name) },
+                          prompt: true
+  = render 'specific_fields', form: f
+
+  .actions = f.submit

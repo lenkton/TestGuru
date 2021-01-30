@@ -1,0 +1,23 @@
+h1 Listing conditions
+
+table
+  thead
+    tr
+      th Name
+      th Type
+      th
+      th
+      th
+
+  tbody
+    - @conditions.each do |condition|
+      tr
+        td = condition.name
+        td = condition.type
+        td = link_to 'Show', admin_condition_path(condition)
+        td = link_to 'Edit', edit_admin_condition_path(condition)
+        td = link_to 'Destroy', admin_condition_path(condition), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Condition', new_admin_condition_path
