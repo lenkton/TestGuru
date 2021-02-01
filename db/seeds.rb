@@ -117,8 +117,8 @@ set_of_tests_solved_conditions =
     [:name]
   )
 
-unless set_of_tests_solved_conditions[0].requred_tests&.any?
-  set_of_tests_solved_conditions[0].requred_tests.push([tests[1], tests[2]])
+unless set_of_tests_solved_conditions[0].required_tests&.any?
+  set_of_tests_solved_conditions[0].required_tests.push([tests[1], tests[2]])
 end
 
 tries_count_conditions =
