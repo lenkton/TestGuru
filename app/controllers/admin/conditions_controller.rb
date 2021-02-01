@@ -17,7 +17,7 @@ class Admin::ConditionsController < Admin::BaseController
 
   def create
     @condition = Condition.create!(condition_params)
-    @condition.test_ids = params[:condition][:test_ids] if @condition.is_a?(SetOfTestsSolvedCondition)
+    @condition.required_test_ids = params[:condition][:test_ids] if @condition.is_a?(SetOfTestsSolvedCondition)
 
     if @condition.save
       flash[:notice] = 'Condition was successfully created.'
@@ -28,7 +28,7 @@ class Admin::ConditionsController < Admin::BaseController
   end
 
   def update
-    @condition.test_ids = params[:condition][:test_ids] if @condition.is_a?(SetOfTestsSolvedCondition)
+    @condition.required_test_ids = params[:condition][:test_ids] if @condition.is_a?(SetOfTestsSolvedCondition)
 
     if @condition.update(condition_params)
       flash[:notice] = 'Condition was successfully updated.'

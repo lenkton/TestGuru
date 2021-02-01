@@ -13,7 +13,7 @@ dl
     dt = t(:required_tests)
     dd
       ol
-        - for test in @condition.tests
+        - for test in @condition.required_tests
           li = test.name
 
 => link_to 'Edit', edit_admin_condition_path(@condition)
