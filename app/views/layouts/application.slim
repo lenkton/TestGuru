@@ -11,6 +11,10 @@ html
   body
     header = render 'shared/header'
 
+    .hide#badges-pop
+      .badges
+        = render Badge.all
+
     = render 'shared/flash'
     
     == yield

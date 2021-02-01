@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  badges:
+    show_badges: Show badges
+    hide_badges: Hide badges
   TriesCountCondition: Dependent on the number of takes before solving a test
   hello: "Hello world"
   gists:

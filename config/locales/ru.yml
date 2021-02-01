@@ -1,5 +1,8 @@
 ---
 ru:
+  badges:
+    show_badges: Показать бейджи
+    hide_badges: Спрятать бейджи
   TriesCountCondition: Условие, связанное с количеством попыток прохождения теста
   gists:
     create:

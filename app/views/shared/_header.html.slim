@@ -4,7 +4,9 @@ h1.nav = link_to 'Test Guru', root_path
   - if current_user.admin?
     = link_to "to admin's", admin_tests_path
   
-  p.nav = link_to 'Badges', badges_path
+  p.nav
+    button#show-badges-button = t('badges.show_badges')
+    button#hide-badges-button.hide = t('badges.hide_badges')
   p.nav = button_to 'Quit', destroy_user_session_path, method: :delete
 
 - else
