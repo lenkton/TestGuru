@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :badges, only: %i[index show]
+  resources :badges, only: %i[show]
   resources :conditions, only: %i[show]
 
   namespace :admin do
