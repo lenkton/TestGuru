@@ -112,14 +112,19 @@ set_of_tests_solved_conditions =
   create_array_of!(
     SetOfTestsSolvedCondition,
     [
-      {name: 'tests 2 and 3'}
+      {name: 'Tests from Business category'}
     ],
     [:name]
   )
 
-unless set_of_tests_solved_conditions[0].required_tests&.any?
-  set_of_tests_solved_conditions[0].required_tests.push([tests[1], tests[2]])
-end
+create_array_of!(
+  TestCompletionRequirement,
+  [
+    {test: tests[1], condition: set_of_tests_solved_conditions[0]},
+    {test: tests[2], condition: set_of_tests_solved_conditions[0]}
+  ],
+  [:test, :condition]
+)
 
 tries_count_conditions =
   create_array_of!(
@@ -134,13 +139,25 @@ badges =
   create_array_of!(
     Badge,
     [
-      {name: 'Badge for certain tests', image_url: "http://localhost:3000/smile.bmp", condition: set_of_tests_solved_conditions[0]},
-      {name: 'Badge for the 1st triers', image_url: "http://localhost:3000/smile.bmp", condition: tries_count_conditions[0]}
+      {
+        name: 'Badge for solving all the Business tests',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition: set_of_tests_solved_conditions[0]
+      },
+      {
+        name: 'Badge for the 1st triers',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition: tries_count_conditions[0]
+      }
     ],
     [:name]
   )
 
-unless badges[0].rewarded_users&.any?
-  badges[0].rewarded_users.push(users[2])
-  badges[1].rewarded_users.push(users[2])
-end
+create_array_of!(
+  Rewarding,
+  [
+    {user: users[2], badge: badges[0]},
+    {user: users[2], badge: badges[1]}
+  ],
+  [:user, :badge]
+)
