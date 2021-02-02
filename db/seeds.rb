@@ -61,7 +61,9 @@ questions =
 
      { text: 'Test question #13', test: tests[2] },
      { text: 'Test question #23', test: tests[2] },
-     { text: 'Test question #33', test: tests[2] }],
+     { text: 'Test question #33', test: tests[2] },
+    
+     { text: 'Test question #14', test: tests[3]}],
     %i[text test]
   )
 
@@ -87,7 +89,9 @@ create_array_of!(
     { text: 'The right answer', question: questions[7], correct: true },
     { text: 'A wrong answer', question: questions[7], correct: false },
     { text: 'The right answer', question: questions[8], correct: true },
-    { text: 'A wrong answer', question: questions[8], correct: false }
+    { text: 'A wrong answer', question: questions[8], correct: false },
+
+    { text: 'The right answer', question: questions[9], correct: true}
   ],
   %i[question text]
 )
