@@ -112,7 +112,8 @@ set_of_tests_solved_conditions =
   create_array_of!(
     SetOfTestsSolvedCondition,
     [
-      {name: 'Tests from Business category'}
+      {name: 'Tests from Business category'},
+      {name: 'All non-easy tests'}
     ],
     [:name]
   )
@@ -121,7 +122,11 @@ create_array_of!(
   TestCompletionRequirement,
   [
     {test: tests[1], condition: set_of_tests_solved_conditions[0]},
-    {test: tests[2], condition: set_of_tests_solved_conditions[0]}
+    {test: tests[2], condition: set_of_tests_solved_conditions[0]},
+
+    {test: tests[0], condition: set_of_tests_solved_conditions[1]},
+    {test: tests[2], condition: set_of_tests_solved_conditions[1]},
+    {test: tests[3], condition: set_of_tests_solved_conditions[1]}
   ],
   [:test, :condition]
 )
@@ -130,7 +135,8 @@ tries_count_conditions =
   create_array_of!(
     TriesCountCondition,
     [
-      {name: 'need only 1 try', tries_count: 1}
+      {name: 'need only 1 try', tries_count: 1},
+      {name: '7 fails before the 1st success', tries_count: 8}
     ],
     [:name]
   )
@@ -148,6 +154,16 @@ badges =
         name: 'Badge for the 1st triers',
         image_url: "http://localhost:3000/smile.bmp",
         condition: tries_count_conditions[0]
+      },
+      {
+        name: 'Level 2 and above!',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition: set_of_tests_solved_conditions[1]
+      },
+      {
+        name: '7 times - to measure, 8th - to cut',
+        image_url: "http://localhost:3000/knife.img",
+        condition: tries_count_conditions[1]
       }
     ],
     [:name]

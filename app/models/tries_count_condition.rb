@@ -3,9 +3,12 @@ class TriesCountCondition < Condition
   validates :tries_count, presence: true
 
   def met_for?(user)
-    return unless user.test_taking_sessions.order(:updated_ad, :acs).last.successful?
-    return if user.test_taking_sessions.filter(&:successful?).size > 1
+    last_session = user.test_taking_sessions.order(:updated_ad, :acs).last
+    tries_for_last_test = user.test_taking_sessions.where('test_taking_sessions.test_id = ?', last_session.test.id)
 
-    user.test_taking_sessions.size <= tries_count
+    return unless last_session.successful?
+    return if tries_for_last_test.filter(&:successful?).size > 1
+
+    tries_for_last_test.size == tries_count
   end
 end
