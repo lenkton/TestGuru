@@ -4,7 +4,6 @@ class TestTakingSessionsController < ApplicationController
   end
 
   def result
-    check_badges_for(@session.user)
   end
 
   def update
@@ -12,6 +11,7 @@ class TestTakingSessionsController < ApplicationController
 
     if @session.is_completed?
       TestsMailer.completed_test(@session).deliver_now
+      check_badges_for(@session.user)
       redirect_to result_test_taking_session_path(@session)
     else
       render :show
