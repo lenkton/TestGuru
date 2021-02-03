@@ -11,6 +11,15 @@ ru:
   test_taking_sessions:
     update:
       user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
+  tests:
+    index:
+      actions: Действия
+      difficulty_level: Уровень сложности
+      tests: Тесты
+      title: Название
+      questions_number: Количество вопросов
+    test:
+      start: Начать!
   admin:
     tests:
       form_inline:

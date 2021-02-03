@@ -36,6 +36,15 @@ en:
   test_taking_sessions:
     update:
       user_reveived_badges: "Congratulations! You have received the following badges: %{names}"
+  tests:
+    index:
+      actions: Actions
+      difficulty_level: Difficulty_level
+      tests: Tests
+      title: Title
+      questions_number: Questions number
+    test:
+      start: Start!
   TriesCountCondition: Dependent on the number of takes before solving a test
   hello: "Hello world"
   gists:
