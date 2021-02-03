@@ -8,6 +8,9 @@ ru:
     create:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
+  test_taking_sessions:
+    update:
+      user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
   admin:
     tests:
       form_inline:

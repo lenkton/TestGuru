@@ -33,6 +33,9 @@ en:
   badges:
     show_badges: Show badges
     hide_badges: Hide badges
+  test_taking_sessions:
+    update:
+      user_reveived_badges: "Congratulations! You have received the following badges: %{names}"
   TriesCountCondition: Dependent on the number of takes before solving a test
   hello: "Hello world"
   gists:
