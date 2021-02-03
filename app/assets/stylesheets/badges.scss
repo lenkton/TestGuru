@@ -2,6 +2,16 @@
   display: flex;
 }
 
+.badge{
+  & h3{
+    font-size: medium;
+  }
+
+  & img{
+    size: 50px;
+  }
+}
+
 .not-possessed img{
   opacity: 0.5;
 }
