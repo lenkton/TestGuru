@@ -74,6 +74,14 @@ en:
         image_url: Image URL
         name: Badge name
     tests:
+      index:
+        actions: Actions
+        create: Create new test
+        difficulty_level: Difficulty level
+        category: Category
+        tests: Tests
+        title: Title
+        questions_number: Questions number
       form_inline:
         submit: OK
     gists:

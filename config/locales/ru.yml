@@ -22,6 +22,7 @@ ru:
     index:
       actions: Действия
       difficulty_level: Уровень сложности
+      category: Категория
       tests: Тесты
       title: Название
       questions_number: Количество вопросов
@@ -43,6 +44,14 @@ ru:
         image_url: Адрес изображения
         name: Название бейджа
     tests:
+      index:
+        actions: Действия
+        create: Создать новый тест
+        difficulty_level: Уровень сложности
+        category: Категория
+        tests: Тесты
+        title: Название
+        questions_number: Количество вопросов
       form_inline:
         submit: ОК
     gists:
