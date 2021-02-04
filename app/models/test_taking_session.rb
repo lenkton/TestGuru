@@ -15,10 +15,6 @@ class TestTakingSession < ApplicationRecord
     100 * correct_questions / test.questions.count
   end
 
-  def successful?
-    success_rate >= MINIMUM_SUCCESS_RATE
-  end
-
   def question_number
     test.questions.order(:id).where('id <= ?', current_question.id).count
   end
@@ -39,7 +35,15 @@ class TestTakingSession < ApplicationRecord
     save!
   end
 
+  def taking_time
+    Time.current - created_at
+  end
+
   private
+
+  def successful?
+    success_rate >= MINIMUM_SUCCESS_RATE
+  end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first
@@ -50,7 +54,7 @@ class TestTakingSession < ApplicationRecord
   end
 
   def before_update_save_success
-    self.success = successful?
+    self.success = (successful? && (!test.time_limit || test.time_limit > taking_time))
   end
 
   def correct_answer?(answer_ids)
