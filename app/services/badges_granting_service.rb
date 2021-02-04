@@ -1,13 +1,15 @@
 class BadgesGrantingService
-  def initialize(user)
-    @user = user
-  end
+  CONDITIONS =
+  {
+    tries_count: TriesCountConditionSpecification,
+    category: CategoryConditionSpecification,
+    level: LevelConditionSpecification
+  }.freeze
 
-  def new_badges
-    @new_badges ||= (Badge.all - @user.badges).filter { |badge| badge.condition.met_for?(@user) }
-  end
-
-  def call
-    new_badges.each { |badge| badge.grant_to(@user)}
+  def self.call(session)
+    Badge.find_each do |badge|
+      condition = CONDITIONS[badge.condition_type.to_sym].new(session, badge.condition_parameter)
+      badge.grant_to(session.user) if (condition.satisfies?)
+    end
   end
 end
