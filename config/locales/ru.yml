@@ -1,6 +1,14 @@
 ---
 ru:
+  actions:
+    show: Показать
+    edit: Редактировать
+    destroy: Удалить
   badges:
+    conditions:
+      tries_count: Количество попыток
+      category: Все тесты категории
+      level: Все тесты определённого уровня сложности
     show_badges: Показать бейджи
     hide_badges: Спрятать бейджи
   TriesCountCondition: Условие, связанное с количеством попыток прохождения теста
@@ -8,9 +16,8 @@ ru:
     create:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
-  test_taking_sessions:
-    update:
-      user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
+  new_badges_notification_service:
+    user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
   tests:
     index:
       actions: Действия
@@ -21,6 +28,20 @@ ru:
     test:
       start: Начать!
   admin:
+    badges:
+      index:
+        actions: Действия
+        condition_parameter: Параметр условия
+        condition_type: Тип условия
+        image_url: Адрес изображения
+        listing_badges: Список бейджей
+        name: Имя бейджа
+        new_badge: Создать бейдж
+      form:
+        condition_type: Тип правила
+        condition_parameter: Атрибут правила
+        image_url: Адрес изображения
+        name: Название бейджа
     tests:
       form_inline:
         submit: ОК
