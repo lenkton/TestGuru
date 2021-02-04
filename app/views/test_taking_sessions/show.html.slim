@@ -1,4 +1,12 @@
 h1 = @session.test.name
+
+- if @session.test.time_limit
+  #timer data-time-total=(time_left(@session))
+    p
+      strong Time left:
+      span#timer-value
+        = time_left(@session)
+
 #progress-bar
   - @session.test.questions.count.times do |i|
       .progress-cell data-cell-number=(i + 1)
