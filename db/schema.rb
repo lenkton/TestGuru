@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2021_01_22_232538) do
   create_table "badges", force: :cascade do |t|
     t.string "name", null: false
     t.string "image_url", null: false
-    t.integer "condition_id", null: false
+    t.string "condition_type", null: false
+    t.string "condition_parameter", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["condition_id"], name: "index_badges_on_condition_id"
     t.index ["name"], name: "index_badges_on_name", unique: true
   end
 
@@ -35,16 +35,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_232538) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "conditions", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "type", null: false
-    t.integer "tries_count"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_conditions_on_name", unique: true
-    t.index ["type"], name: "index_conditions_on_type"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -74,20 +64,12 @@ ActiveRecord::Schema.define(version: 2021_01_22_232538) do
     t.index ["user_id"], name: "index_rewardings_on_user_id"
   end
 
-  create_table "test_completion_requirements", force: :cascade do |t|
-    t.integer "test_id", null: false
-    t.integer "condition_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["condition_id"], name: "index_test_completion_requirements_on_condition_id"
-    t.index ["test_id"], name: "index_test_completion_requirements_on_test_id"
-  end
-
   create_table "test_taking_sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0, null: false
+    t.boolean "success"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["current_question_id"], name: "index_test_taking_sessions_on_current_question_id"
@@ -128,7 +110,6 @@ ActiveRecord::Schema.define(version: 2021_01_22_232538) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "badges", "conditions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users", column: "creator_id"
   add_foreign_key "questions", "tests"

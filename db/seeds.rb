@@ -99,8 +99,8 @@ create_array_of!(
   TestTakingSession,
   [
     { user: users[2], test: tests[0], current_question: tests[0].questions.last, correct_questions: 2 },
-    { user: users[2], test: tests[1], current_question: nil, correct_questions: 3 },
-    { user: users[2], test: tests[2], current_question: nil, correct_questions: 3 }
+    { user: users[2], test: tests[1], current_question: nil, correct_questions: 3, success: true },
+    { user: users[2], test: tests[2], current_question: nil, correct_questions: 3, success: true }
   ],
   %i[user test]
 )
@@ -112,39 +112,6 @@ create_array_of!(
   [:url]
 )
 
-set_of_tests_solved_conditions =
-  create_array_of!(
-    SetOfTestsSolvedCondition,
-    [
-      {name: 'Tests from Business category'},
-      {name: 'All non-easy tests'}
-    ],
-    [:name]
-  )
-
-create_array_of!(
-  TestCompletionRequirement,
-  [
-    {test: tests[1], condition: set_of_tests_solved_conditions[0]},
-    {test: tests[2], condition: set_of_tests_solved_conditions[0]},
-
-    {test: tests[0], condition: set_of_tests_solved_conditions[1]},
-    {test: tests[2], condition: set_of_tests_solved_conditions[1]},
-    {test: tests[3], condition: set_of_tests_solved_conditions[1]}
-  ],
-  [:test, :condition]
-)
-
-tries_count_conditions =
-  create_array_of!(
-    TriesCountCondition,
-    [
-      {name: 'need only 1 try', tries_count: 1},
-      {name: '7 fails before the 1st success', tries_count: 8}
-    ],
-    [:name]
-  )
-
 badges =
   create_array_of!(
     Badge,
@@ -152,22 +119,20 @@ badges =
       {
         name: 'Badge for solving all the Business tests',
         image_url: "http://localhost:3000/smile.bmp",
-        condition: set_of_tests_solved_conditions[0]
+        condition_type: :category,
+        condition_parameter: categories[2].id
       },
       {
         name: 'Badge for the 1st triers',
         image_url: "http://localhost:3000/smile.bmp",
-        condition: tries_count_conditions[0]
+        condition_type: :tries_count,
+        condition_parameter: 1
       },
       {
-        name: 'Level 2 and above!',
+        name: 'For passing all level 2 tests',
         image_url: "http://localhost:3000/smile.bmp",
-        condition: set_of_tests_solved_conditions[1]
-      },
-      {
-        name: '7 times - to measure, 8th - to cut',
-        image_url: "http://localhost:3000/knife.img",
-        condition: tries_count_conditions[1]
+        condition_type: :level,
+        condition_parameter: 2
       }
     ],
     [:name]
