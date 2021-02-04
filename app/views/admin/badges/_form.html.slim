@@ -7,12 +7,15 @@
           li = message
 
   .field
-    = f.label :name
+    = f.label :name, t('.name')
     = f.text_field :name
   .field
-    = f.label :image_url
+    = f.label :image_url, t('.image_url')
     = f.text_field :image_url
   .field
-    = f.label :condition_id
-    = f.collection_select :condition_id, Condition.all, :id, :name, prompt: true
+    = f.label :condition_type, t('.condition_type')
+    = f.collection_select :condition_type, BadgesGrantingService::CONDITIONS, :first, ->(arr) { t("badges.conditions.#{arr.first}") },  prompt: true
+  .field
+    = f.label :condition_parameter, t('.condition_parameter')
+    = f.text_field :condition_parameter
   .actions = f.submit

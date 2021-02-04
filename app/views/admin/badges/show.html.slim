@@ -1,14 +1,15 @@
-p#notice = notice
+dl
+  dt Name:
+  dd = @badge.name
 
-p
-  strong Name:
-  =< @badge.name
-p
-  strong Image url:
-  =< link_to @badge.image_url, @badge.image_url
-p
-  strong Condition:
-  =< link_to @badge.condition.name, admin_condition_path(@badge.condition)
+  dt Image url:
+  dd = link_to @badge.image_url, @badge.image_url
+
+  dt Condition Type:
+  dd = @badge.condition_type
+
+  dt = t('.condition_parameter')
+  dd = @badge.condition_parameter
 
 => link_to 'Edit', edit_admin_badge_path(@badge)
 '|
