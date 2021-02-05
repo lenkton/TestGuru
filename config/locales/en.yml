@@ -60,6 +60,17 @@ en:
       success: "Gist was created successfully: %{link}"
       failure: "An error occured while saving the gist"
   admin:
+    answers:
+      edit:
+        header: Edit the answer to the question %{question_name}
+      form:
+        correctness: Answer correctness
+        text: Answer text
+      new:
+        header: Add an answer to the question %{question_name}
+      show:
+        answer: Answer
+        correctness: Answer correctness
     badges:
       edit:
         header: Edit badge

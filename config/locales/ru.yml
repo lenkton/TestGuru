@@ -30,6 +30,17 @@ ru:
     test:
       start: Начать!
   admin:
+    answers:
+      edit:
+        header: Редактирование ответа к вопросу %{question_name}
+      form:
+        correctness: Является ли ответ правильным
+        text: Текст ответа
+      new:
+        header: Добавление ответа к вопросу %{question_name}
+      show:
+        answer: Ответ
+        correctness: Является ли ответ правильным
     badges:
       edit:
         header: Редактирование бейджа

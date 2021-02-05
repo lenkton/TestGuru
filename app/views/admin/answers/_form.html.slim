@@ -1,10 +1,12 @@
 = form_with model: [:admin, @question, @answer], local: true do |f|
   == render 'shared/errors', resource: @answer
   
-  = f.label  :text, 'Text:'
-  = f.text_field :text
+  .field
+    = f.label  :text, t('.text')
+    = f.text_field :text
 
-  = f.label  :correct, 'Correct:'
-  = f.check_box :correct
+  .field
+    = f.label  :correct, t('.correctness')
+    = f.check_box :correct
 
   .actions = f.submit
