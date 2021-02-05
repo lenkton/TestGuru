@@ -8,7 +8,7 @@ class BadgesGrantingService
   def self.call(session)
     Badge.find_each do |badge|
       condition = CONDITIONS[badge.condition_type].new(session, badge.condition_parameter)
-      badge.grant_to(session.user) if (condition.satisfies?)
+      badge.grant_to(session.user) if condition.satisfies?
     end
 
     @new_badges
