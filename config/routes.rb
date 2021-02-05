@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :conditions
   root 'tests#index'
   
   devise_for :users,
