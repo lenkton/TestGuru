@@ -1,6 +1,5 @@
 class BadgesGrantingService
-  CONDITIONS =
-  {
+  CONDITIONS = {
     tries_count: TriesCountConditionSpecification,
     category: CategoryConditionSpecification,
     level: LevelConditionSpecification
