@@ -1,3 +1,8 @@
+require_relative './specifications/abstract_condition_specification'
+require_relative './specifications/category_condition_specification'
+require_relative './specifications/level_condition_specification'
+require_relative './specifications/tries_count_condition_specification'
+
 class BadgesGrantingService
   CONDITIONS = {
     tries_count: TriesCountConditionSpecification,
