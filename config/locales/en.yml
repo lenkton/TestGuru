@@ -42,7 +42,7 @@ en:
       level: All tests of a specific difficulty level
     show_badges: Show badges
     hide_badges: Hide badges
-  new_badges_notification_service:
+  new_badges_granting_service:
     user_reveived_badges: "Congratulations! You have received the following badges: %{names}"
   tests:
     index:

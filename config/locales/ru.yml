@@ -17,7 +17,7 @@ ru:
     create:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
-  new_badges_notification_service:
+  new_badges_granting_service:
     user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
   tests:
     index:
