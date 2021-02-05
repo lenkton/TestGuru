@@ -11,5 +11,15 @@ class BadgesGrantingService
       condition = CONDITIONS[badge.condition_type.to_sym].new(session, badge.condition_parameter)
       badge.grant_to(session.user) if (condition.satisfies?)
     end
+
+    @new_badges
+  end
+
+  private
+
+  def give_badge(badge, user)
+    badge.grant_to(user)
+    @new_badges ||= []
+    @new_badges << badge
   end
 end

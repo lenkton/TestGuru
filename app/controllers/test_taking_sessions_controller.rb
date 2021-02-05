@@ -10,9 +10,9 @@ class TestTakingSessionsController < ApplicationController
     @session.accept!(params[:answer_ids])
 
     if @session.is_completed?
-      BadgesGrantingService.call(@session)
+      new_badges = BadgesGrantingService.call(@session)
 
-      flash[:notice] = NewBadgesNotificationService.call(@session)
+      flash[:notice] = NewBadgesNotificationService.call(new_badges)
 
       TestsMailer.completed_test(@session).deliver_now
       redirect_to result_test_taking_session_path(@session)
