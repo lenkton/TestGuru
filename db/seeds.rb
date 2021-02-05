@@ -119,19 +119,19 @@ badges =
       {
         name: 'Badge for solving all the Business tests',
         image_url: "http://localhost:3000/smile.bmp",
-        condition_type: :category,
+        condition_type: 'category',
         condition_parameter: categories[2].id
       },
       {
         name: 'Badge for the 1st triers',
         image_url: "http://localhost:3000/smile.bmp",
-        condition_type: :tries_count,
+        condition_type: 'tries_count',
         condition_parameter: 1
       },
       {
         name: 'For passing all level 2 tests',
         image_url: "http://localhost:3000/smile.bmp",
-        condition_type: :level,
+        condition_type: 'level',
         condition_parameter: 2
       }
     ],
