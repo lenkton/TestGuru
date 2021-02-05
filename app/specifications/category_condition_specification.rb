@@ -1,6 +1,6 @@
 class CategoryConditionSpecification < AbstractConditionSpecification
   def satisfies?
-    return if Category.find_by(id: @parameter) != @session.test.category
+    return false if Category.find_by(id: @parameter) != @session.test.category
 
     Test.where(category_id: 1)
         .joins(:test_taking_sessions)
