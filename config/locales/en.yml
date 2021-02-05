@@ -31,6 +31,7 @@
 
 en:
   actions:
+    back: Назад
     show: Show
     edit: Edit
     destroy: Destroy
@@ -60,6 +61,8 @@ en:
       failure: "An error occured while saving the gist"
   admin:
     badges:
+      edit:
+        header: Edit badge
       index:
         actions: Actions
         condition_parameter: Condition parameter
@@ -73,6 +76,12 @@ en:
         condition_parameter: Condition parameter
         image_url: Image URL
         name: Badge name
+      new:
+        header: Create new badge
+      show:
+        image_url: Image URL
+        condition_type: Condition type
+        condition_parameter: Condition parameter
     tests:
       index:
         actions: Actions

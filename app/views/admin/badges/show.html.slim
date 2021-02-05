@@ -1,16 +1,14 @@
+h1 = @badge.name
 dl
-  dt Name:
-  dd = @badge.name
-
-  dt Image url:
+  dt = t('.image_url')
   dd = link_to @badge.image_url, @badge.image_url
 
-  dt Condition Type:
-  dd = @badge.condition_type
+  dt = t('.condition_type')
+  dd = t("badges.conditions.#{@badge.condition_type}")
 
   dt = t('.condition_parameter')
   dd = @badge.condition_parameter
 
-=> link_to 'Edit', edit_admin_badge_path(@badge)
+=> link_to t('actions.edit'), edit_admin_badge_path(@badge)
 '|
-=< link_to 'Back', admin_badges_path
+=< link_to t('actions.back'), admin_badges_path

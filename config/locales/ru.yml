@@ -1,6 +1,7 @@
 ---
 ru:
   actions:
+    back: Назад
     show: Показать
     edit: Редактировать
     destroy: Удалить
@@ -30,6 +31,8 @@ ru:
       start: Начать!
   admin:
     badges:
+      edit:
+        header: Редактирование бейджа
       index:
         actions: Действия
         condition_parameter: Параметр условия
@@ -43,6 +46,12 @@ ru:
         condition_parameter: Атрибут правила
         image_url: Адрес изображения
         name: Название бейджа
+      new:
+        header: Создание бейджа
+      show:
+        image_url: Адрес изображения
+        condition_type: Тип условия
+        condition_parameter: Параметр условия
     tests:
       index:
         actions: Действия
