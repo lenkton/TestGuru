@@ -1,8 +1,8 @@
 tr
   td = link_to question.text, admin_question_path(question)
-  td = link_to 'Edit', edit_admin_question_path(question)
-  td = link_to 'Delete',
+  td = link_to t('actions.edit'), edit_admin_question_path(question)
+  td = link_to t('actions.destroy'),
                admin_question_path(question),
                method: :delete,
-               data: {confirm: "Do you want to delete the question '#{question.text}'"}
+               data: {confirm: t('.delete_confirmation', question_text: question.text)}
   

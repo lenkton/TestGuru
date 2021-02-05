@@ -31,6 +31,8 @@ ru:
       start: Начать!
   admin:
     answers:
+      answer:
+        destory_confirmation: Вы действительно хотите удалить этот ответ?
       edit:
         header: Редактирование ответа к вопросу %{question_name}
       form:
@@ -80,6 +82,19 @@ ru:
         gist_url: Ссылка на gist
         gists: Список созданных пользователями gist'ов
         question: Вопрос
+    questions:
+      edit:
+        header: Редактирование вопроса
+      form:
+        text: Текст вопроса
+      new:
+        header: Создание вопроса
+      show:
+        add_answer: Добавить ответ
+        answers: Ответы
+        destroy_confirmation: "Вы действительно хотите удалить вопрос: \"%{question_text}\"?"
+      question:
+        delete_confirmation:  "Вы действительно хотите удалить вопрос: \"%{question_text}\"?"
   services:
     gist_question_service:
       gist_description: "Вопрос по теме \"%{test_name}\" от TestGuru"

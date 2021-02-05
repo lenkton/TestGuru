@@ -61,6 +61,8 @@ en:
       failure: "An error occured while saving the gist"
   admin:
     answers:
+      answer:
+        destory_confirmation: Are you sure of destroying the answer?
       edit:
         header: Edit the answer to the question %{question_name}
       form:
@@ -110,6 +112,19 @@ en:
         gist_url: Gist link
         gists: The list of all gists created
         question: Question
+    questions:
+      edit:
+        header: Edit the question
+      form:
+        text: Question text
+      new:
+        header: Create a question
+      show:
+        add_answer: Add an answer
+        answers: Answers
+        destroy_confirmation: "Are you sure of destroying the question %{question_text}?"
+      question:
+        delete_confirmation:  "Are you sure of destroying the question %{question_text}?"
   services:
     gist_question_service:
       gist_description: "A question about %{test_name} from TestGuru"
