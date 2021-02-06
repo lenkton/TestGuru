@@ -6,14 +6,14 @@ class BadgesGrantingService
   }.freeze
 
   def initialize(session)
-    @session = session
+    @test_taking_session = session
     @new_badges = []
   end
 
   def call
     Badge.find_each do |badge|
-      condition = CONDITIONS[badge.condition_type].new(@session, badge.condition_parameter)
-      give_badge(badge, @session.user) if condition.satisfies?
+      condition = CONDITIONS[badge.condition_type].new(@test_taking_session, badge.condition_parameter)
+      give_badge(badge, @test_taking_session.user) if condition.satisfies?
     end
   end
 

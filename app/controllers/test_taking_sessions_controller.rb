@@ -7,16 +7,16 @@ class TestTakingSessionsController < ApplicationController
   end
 
   def update
-    @session.accept!(params[:answer_ids])
+    @test_taking_session.accept!(params[:answer_ids])
 
-    if @session.is_completed?
-      badges_service = BadgesGrantingService.new(@session)
+    if @test_taking_session.is_completed?
+      badges_service = BadgesGrantingService.new(@test_taking_session)
       badges_service.call
 
       flash[:notice] = badges_service.new_badges_notice
 
-      TestsMailer.completed_test(@session).deliver_now
-      redirect_to result_test_taking_session_path(@session)
+      TestsMailer.completed_test(@test_taking_session).deliver_now
+      redirect_to result_test_taking_session_path(@test_taking_session)
     else
       render :show
     end
@@ -25,6 +25,6 @@ class TestTakingSessionsController < ApplicationController
   private
 
   def find_session
-    @session = TestTakingSession.find(params[:id])
+    @test_taking_session = TestTakingSession.find(params[:id])
   end
 end

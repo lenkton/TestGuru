@@ -1,6 +1,6 @@
 class AbstractConditionSpecification
   def initialize(session, parameter)
-    @session = session
+    @test_taking_session = session
     @parameter = parameter
   end
 
