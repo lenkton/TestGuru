@@ -1,5 +1,5 @@
 module BadgeHelper
-  def possessed?(badge)
+  def granted?(badge)
     badge.rewarded_users.include?(current_user)
   end
 end
