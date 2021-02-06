@@ -3,8 +3,22 @@ module Badges
     CONDITION_TYPE = 'level'
     def satisfies?
       return false if already_has_badge?
-      
-      @test_taking_session.successful? && Test.where(level: @parameter) - @test_taking_session.user.test_taking_sessions.successful.map(&:test) == []
+
+      @test_taking_session.successful? && passed_all_tests?
+    end
+
+    private
+
+    def passed_all_tests?
+      Test.where(level: @parameter).size == passed_tests.size
+    end
+
+    def passed_tests
+      Test
+        .where(level: @parameter)
+        .joins(:test_taking_sessions)
+        .where(test_taking_sessions: { user: @test_taking_session.user, success: true })
+        .uniq
     end
   end
 end
