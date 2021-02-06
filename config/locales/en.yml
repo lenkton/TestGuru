@@ -31,10 +31,14 @@
 
 en:
   actions:
-    back: Назад
-    show: Show
+    back: Back
+    create_account: Sign up
+    destroy: Delete
     edit: Edit
-    destroy: Destroy
+    sign_in: Sign in
+    show: Show
+    to_admin_panel: to admin's
+    quit: Quit
   badges:
     conditions:
       tries_count: Tries count

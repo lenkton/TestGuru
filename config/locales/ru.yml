@@ -2,9 +2,13 @@
 ru:
   actions:
     back: Назад
-    show: Показать
-    edit: Редактировать
+    create_account: Зарегистрироваться
     destroy: Удалить
+    edit: Редактировать
+    sign_in: Войти
+    show: Показать
+    to_admin_panel: Раздел Администратора
+    quit: Выйти
   badges:
     conditions:
       tries_count: Количество попыток

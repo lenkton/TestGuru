@@ -1,14 +1,14 @@
 h1.nav = link_to 'Test Guru', root_path
 
+- if current_user&.admin?
+  = link_to t('actions.to_admin_panel'), admin_tests_path
+
 - if user_signed_in?
-  - if current_user.admin?
-    = link_to "to admin's", admin_tests_path
-  
   p.nav
     button#show-badges-button = t('badges.show_badges')
     button#hide-badges-button.hide = t('badges.hide_badges')
-  p.nav = button_to 'Quit', destroy_user_session_path, method: :delete
+  p.nav = button_to t('actions.quit'), destroy_user_session_path, method: :delete
 
 - else
-  p.nav = link_to 'Create an account', new_user_registration_path
-  p.nav = link_to 'Sign in', new_user_session_path
+  p.nav = link_to t('actions.create_account'), new_user_registration_path
+  p.nav = link_to t('actions.sign_in'), new_user_session_path
