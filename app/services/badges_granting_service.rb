@@ -29,7 +29,7 @@ class BadgesGrantingService
   private
 
   def give_badge(badge, user)
-    badge.grant_to(user)
+    user.badges << badge
     @new_badges << badge
   end
 end

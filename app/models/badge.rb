@@ -4,8 +4,4 @@ class Badge < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true
   validates :image_url, presence: true
-
-  def grant_to(user)
-    rewarded_users.push(user)
-  end
 end
