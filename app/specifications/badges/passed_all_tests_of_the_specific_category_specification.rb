@@ -1,4 +1,4 @@
-class Badges::CategoryConditionSpecification < Badges::AbstractConditionSpecification
+class Badges::PassedAllTestsOfTheSpecificCategorySpecification < Badges::AbstractConditionSpecification
   CONDITION_TYPE = 'category'
 
   def satisfies?

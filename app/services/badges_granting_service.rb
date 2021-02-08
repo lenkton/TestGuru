@@ -1,8 +1,8 @@
 class BadgesGrantingService
   CONDITIONS = {
     'first_try' => Badges::SuccessFromTheFirstTrySpecification,
-    'category' => Badges::CategoryConditionSpecification,
-    'level' => Badges::LevelConditionSpecification
+    'category' => Badges::PassedAllTestsOfTheSpecificCategorySpecification,
+    'level' => Badges::PassedAllTestsOfTheSpecificLevelSpecification
   }.freeze
 
   def initialize(session)

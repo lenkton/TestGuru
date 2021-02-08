@@ -1,4 +1,4 @@
-class Badges::LevelConditionSpecification < Badges::AbstractConditionSpecification
+class Badges::PassedAllTestsOfTheSpecificLevelSpecification < Badges::AbstractConditionSpecification
   CONDITION_TYPE = 'level'
   def satisfies?
     return false if already_has_badge?
