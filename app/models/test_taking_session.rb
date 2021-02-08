@@ -5,6 +5,9 @@ class TestTakingSession < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
+  before_update :before_update_save_success, if: :is_completed?
+
+  scope :successful, ->() { where(success: true) }
 
   MINIMUM_SUCCESS_RATE = 85
 
@@ -44,6 +47,10 @@ class TestTakingSession < ApplicationRecord
 
   def before_update_set_next_question
     self.current_question = next_question
+  end
+
+  def before_update_save_success
+    self.success = successful?
   end
 
   def correct_answer?(answer_ids)

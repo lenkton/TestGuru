@@ -1,16 +1,16 @@
-h1 = @session.test.name
+h1 = @test_taking_session.test.name
 #progress-bar
-  - @session.test.questions.count.times do |i|
+  - @test_taking_session.test.questions.count.times do |i|
       .progress-cell data-cell-number=(i + 1)
 
-.question#question data-question-number=@session.question_number
+.question#question data-question-number=@test_taking_session.question_number
   p
-    = @session.current_question.text
-    | (#{@session.question_number}/#{@session.questions_total})
-  = form_with url: test_taking_session_path(@session), local: true, method: :put do |form|
-    ul = form.collection_check_boxes :answer_ids, @session.current_question.answers, :id, :text, include_hidden: false do |boxes|
+    = @test_taking_session.current_question.text
+    | (#{@test_taking_session.question_number}/#{@test_taking_session.questions_total})
+  = form_with url: test_taking_session_path(@test_taking_session), local: true, method: :put do |form|
+    ul = form.collection_check_boxes :answer_ids, @test_taking_session.current_question.answers, :id, :text, include_hidden: false do |boxes|
       li 
         = boxes.check_box
         =< boxes.label
-    p = link_to 'Gist Question', test_taking_session_gists_path(@session), method: :post
+    p = link_to 'Gist Question', test_taking_session_gists_path(@test_taking_session), method: :post
     p = form.submit 'Next'

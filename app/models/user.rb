@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :authored_tests, class_name: :Test, foreign_key: :author_id, dependent: :destroy
   has_many :test_taking_sessions, dependent: :destroy
   has_many :taken_tests, through: :test_taking_sessions, source: :test
+  has_many :rewardings, dependent: :destroy
+  has_many :badges, through: :rewardings
 
   validates :name, presence: true
   validates :email, format: URI::MailTo::EMAIL_REGEXP, uniqueness: true, presence: true

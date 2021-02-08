@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_194851) do
+ActiveRecord::Schema.define(version: 2021_01_22_232538) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text", null: false
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_01_16_194851) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image_url", null: false
+    t.string "condition_type", null: false
+    t.string "condition_parameter", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_badges_on_name", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -45,11 +55,21 @@ ActiveRecord::Schema.define(version: 2021_01_16_194851) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
+  create_table "rewardings", force: :cascade do |t|
+    t.integer "badge_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_rewardings_on_badge_id"
+    t.index ["user_id"], name: "index_rewardings_on_user_id"
+  end
+
   create_table "test_taking_sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0, null: false
+    t.boolean "success"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["current_question_id"], name: "index_test_taking_sessions_on_current_question_id"

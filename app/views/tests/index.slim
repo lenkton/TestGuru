@@ -1,12 +1,14 @@
-h1 Tests
+h1 = t('.tests')
 table.table
   thead
     th.sort-by-title.pointer
-      | Title
+      = t('.title')
       = octicon 'arrow-up'
       = octicon 'arrow-down'
-    th Questions
-    th Actions
+    th = t('.category')
+    th = t('.difficulty_level')
+    th = t('.questions_number')
+    th = t('.actions')
   tbody
     = render @tests
   

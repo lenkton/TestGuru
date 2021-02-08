@@ -1,0 +1,12 @@
+#tries-count-conditions-params,
+#set-of-tests-solved-conditions-params
+{
+  display: none;
+}
+
+:checked[value = "TriesCountCondition"] ~ #tries-count-conditions-params,
+:checked[value = "SetOfTestsSolvedCondition"] ~ #set-of-tests-solved-conditions-params
+{
+  display: block;
+}
+

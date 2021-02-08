@@ -30,13 +30,84 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  actions:
+    back: Back
+    create_account: Sign up
+    destroy: Delete
+    edit: Edit
+    sign_in: Sign in
+    show: Show
+    to_admin_panel: to admin's
+    quit: Quit
+  badges:
+    conditions:
+      first_try: Tries count
+      category: All tests from category
+      level: All tests of a specific difficulty level
+    show_badges: Show badges
+    hide_badges: Hide badges
+  new_badges_granting_service:
+    user_reveived_badges: "Congratulations! You have received the following badges: %{names}"
+  tests:
+    index:
+      actions: Actions
+      difficulty_level: Difficulty_level
+      tests: Tests
+      title: Title
+      questions_number: Questions number
+    test:
+      start: Start!
+  TriesCountCondition: Dependent on the number of takes before solving a test
   hello: "Hello world"
   gists:
     create:
       success: "Gist was created successfully: %{link}"
       failure: "An error occured while saving the gist"
   admin:
+    answers:
+      answer:
+        destory_confirmation: Are you sure of destroying the answer?
+      edit:
+        header: Edit the answer to the question %{question_name}
+      form:
+        correctness: Answer correctness
+        text: Answer text
+      new:
+        header: Add an answer to the question %{question_name}
+      show:
+        answer: Answer
+        correctness: Answer correctness
+    badges:
+      edit:
+        header: Edit badge
+      index:
+        actions: Actions
+        condition_parameter: Condition parameter
+        condition_type: Condition type
+        image_url: Image URL
+        listing_badges: Badge list
+        name: Badge name
+        new_badge: Create badge
+      form:
+        condition_type: Condition type
+        condition_parameter: Condition parameter
+        image_url: Image URL
+        name: Badge name
+      new:
+        header: Create new badge
+      show:
+        image_url: Image URL
+        condition_type: Condition type
+        condition_parameter: Condition parameter
     tests:
+      index:
+        actions: Actions
+        create: Create new test
+        difficulty_level: Difficulty level
+        category: Category
+        tests: Tests
+        title: Title
+        questions_number: Questions number
       form_inline:
         submit: OK
     gists:
@@ -45,6 +116,19 @@ en:
         gist_url: Gist link
         gists: The list of all gists created
         question: Question
+    questions:
+      edit:
+        header: Edit the question
+      form:
+        text: Question text
+      new:
+        header: Create a question
+      show:
+        add_answer: Add an answer
+        answers: Answers
+        destroy_confirmation: "Are you sure of destroying the question %{question_text}?"
+      question:
+        delete_confirmation:  "Are you sure of destroying the question %{question_text}?"
   services:
     gist_question_service:
       gist_description: "A question about %{test_name} from TestGuru"

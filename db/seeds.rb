@@ -61,7 +61,9 @@ questions =
 
      { text: 'Test question #13', test: tests[2] },
      { text: 'Test question #23', test: tests[2] },
-     { text: 'Test question #33', test: tests[2] }],
+     { text: 'Test question #33', test: tests[2] },
+    
+     { text: 'Test question #14', test: tests[3]}],
     %i[text test]
   )
 
@@ -87,16 +89,18 @@ create_array_of!(
     { text: 'The right answer', question: questions[7], correct: true },
     { text: 'A wrong answer', question: questions[7], correct: false },
     { text: 'The right answer', question: questions[8], correct: true },
-    { text: 'A wrong answer', question: questions[8], correct: false }
+    { text: 'A wrong answer', question: questions[8], correct: false },
+
+    { text: 'The right answer', question: questions[9], correct: true}
   ],
   %i[question text]
 )
 create_array_of!(
   TestTakingSession,
   [
-    { user: users[2], test: tests[0], current_question: tests[0].questions.first, correct_questions: 0 },
-    { user: users[2], test: tests[1], current_question: tests[1].questions.first, correct_questions: 0 },
-    { user: users[2], test: tests[2], current_question: tests[2].questions.last, correct_questions: 0 }
+    { user: users[2], test: tests[0], current_question: tests[0].questions.last, correct_questions: 2 },
+    { user: users[2], test: tests[1], current_question: nil, correct_questions: 3, success: true },
+    { user: users[2], test: tests[2], current_question: nil, correct_questions: 3, success: true }
   ],
   %i[user test]
 )
@@ -106,4 +110,39 @@ create_array_of!(
     {creator: users[2], gist_hash: '0e9a5d0173d6a4dbff1b72436c2a070b', question: questions[6]}
   ],
   [:url]
+)
+
+badges =
+  create_array_of!(
+    Badge,
+    [
+      {
+        name: 'Badge for solving all the Business tests',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition_type: 'category',
+        condition_parameter: categories[2].id
+      },
+      {
+        name: 'Badge for the 1st triers',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition_type: 'first_try',
+        condition_parameter: 1
+      },
+      {
+        name: 'For passing all level 2 tests',
+        image_url: "http://localhost:3000/smile.bmp",
+        condition_type: 'level',
+        condition_parameter: 2
+      }
+    ],
+    [:name]
+  )
+
+create_array_of!(
+  Rewarding,
+  [
+    {user: users[2], badge: badges[0]},
+    {user: users[2], badge: badges[1]}
+  ],
+  [:user, :badge]
 )

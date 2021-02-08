@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get :result
     end
   end
+  
+  resources :badges, only: %i[show]
 
   namespace :admin do
     root to: 'tests#index'
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: :index
+
+    resources :badges
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

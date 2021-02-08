@@ -1,11 +1,83 @@
 ---
 ru:
+  actions:
+    back: Назад
+    create_account: Зарегистрироваться
+    destroy: Удалить
+    edit: Редактировать
+    sign_in: Войти
+    show: Показать
+    to_admin_panel: Раздел Администратора
+    quit: Выйти
+  badges:
+    conditions:
+      first_try: Количество попыток
+      category: Все тесты категории
+      level: Все тесты определённого уровня сложности
+    show_badges: Показать бейджи
+    hide_badges: Спрятать бейджи
+  TriesCountCondition: Условие, связанное с количеством попыток прохождения теста
   gists:
     create:
       success: "Gist успешно создан: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
+  new_badges_granting_service:
+    user_reveived_badges: "Поздравляем! Вы получили следующие бейджи: %{names}"
+  tests:
+    index:
+      actions: Действия
+      difficulty_level: Уровень сложности
+      category: Категория
+      tests: Тесты
+      title: Название
+      questions_number: Количество вопросов
+    test:
+      start: Начать!
   admin:
+    answers:
+      answer:
+        destory_confirmation: Вы действительно хотите удалить этот ответ?
+      edit:
+        header: Редактирование ответа к вопросу %{question_name}
+      form:
+        correctness: Является ли ответ правильным
+        text: Текст ответа
+      new:
+        header: Добавление ответа к вопросу %{question_name}
+      show:
+        answer: Ответ
+        correctness: Является ли ответ правильным
+    badges:
+      edit:
+        header: Редактирование бейджа
+      index:
+        actions: Действия
+        condition_parameter: Параметр условия
+        condition_type: Тип условия
+        image_url: Адрес изображения
+        listing_badges: Список бейджей
+        name: Имя бейджа
+        new_badge: Создать бейдж
+      form:
+        condition_type: Тип правила
+        condition_parameter: Атрибут правила
+        image_url: Адрес изображения
+        name: Название бейджа
+      new:
+        header: Создание бейджа
+      show:
+        image_url: Адрес изображения
+        condition_type: Тип условия
+        condition_parameter: Параметр условия
     tests:
+      index:
+        actions: Действия
+        create: Создать новый тест
+        difficulty_level: Уровень сложности
+        category: Категория
+        tests: Тесты
+        title: Название
+        questions_number: Количество вопросов
       form_inline:
         submit: ОК
     gists:
@@ -14,6 +86,19 @@ ru:
         gist_url: Ссылка на gist
         gists: Список созданных пользователями gist'ов
         question: Вопрос
+    questions:
+      edit:
+        header: Редактирование вопроса
+      form:
+        text: Текст вопроса
+      new:
+        header: Создание вопроса
+      show:
+        add_answer: Добавить ответ
+        answers: Ответы
+        destroy_confirmation: "Вы действительно хотите удалить вопрос: \"%{question_text}\"?"
+      question:
+        delete_confirmation:  "Вы действительно хотите удалить вопрос: \"%{question_text}\"?"
   services:
     gist_question_service:
       gist_description: "Вопрос по теме \"%{test_name}\" от TestGuru"

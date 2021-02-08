@@ -11,6 +11,11 @@ html
   body
     header = render 'shared/header'
 
+    - if current_user
+      .hide#badges-pop
+        .badges
+          = render Badge.all
+
     = render 'shared/flash'
     
     == yield

@@ -1,0 +1,17 @@
+h1 = t('.listing_badges')
+
+table
+  thead
+    tr
+      th = t('.name')
+      th = t('.image_url')
+      th = t('.condition_type')
+      th = t('.condition_parameter')
+      th colspan=3 = t('.actions')
+
+  tbody
+    = render @badges
+
+br
+
+= link_to t('.new_badge'), new_admin_badge_path

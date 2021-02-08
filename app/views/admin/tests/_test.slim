@@ -5,12 +5,14 @@ tr
               class: 'test-name',
               data: {test_id: test.id}
     = render 'form_inline', test: test == @test ? @test : test
+  td class='align-middle' = test.category.name
+  td class='align-middle' = test.level
   td class='align-middle' = test.questions.size
-  td class='align-middle' = link_to 'Edit',
+  td class='align-middle' = link_to t('actions.edit'),
                                     edit_admin_test_path(test),
                                     data: {test_id: test.id},
                                     class: 'form-inline-link'
-  td class='align-middle' = link_to 'Delete',
+  td class='align-middle' = link_to t('actions.destroy'),
                                     admin_test_path(test),
                                     method: :delete,
                                     data: {confirm: "Do you want to delete the test '#{test.name}'?"}

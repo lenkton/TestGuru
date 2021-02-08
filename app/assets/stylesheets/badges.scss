@@ -1,0 +1,17 @@
+.badges{
+  display: flex;
+}
+
+.badge{
+  & h3{
+    font-size: medium;
+  }
+
+  & img{
+    size: 50px;
+  }
+}
+
+.not-granted img{
+  opacity: 0.5;
+}

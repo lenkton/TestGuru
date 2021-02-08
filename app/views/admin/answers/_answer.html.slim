@@ -1,4 +1,7 @@
-li = link_to answer.text, admin_answer_path(answer)
-=<> link_to 'Edit', edit_admin_answer_path(answer)
-'|
-=< link_to 'Delete', admin_answer_path(answer), data: {confirm: 'Are you sure?'}, method: :delete
+li
+  => link_to answer.text, admin_answer_path(answer)
+  | (
+  = link_to t('actions.edit'), edit_admin_answer_path(answer)
+  | ,
+  =< link_to t('actions.destroy'), admin_answer_path(answer), data: {confirm: t('.destory_confirmation')}, method: :delete
+  | )
