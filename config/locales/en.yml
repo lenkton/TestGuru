@@ -41,7 +41,7 @@ en:
     quit: Quit
   badges:
     conditions:
-      tries_count: Tries count
+      first_try: Tries count
       category: All tests from category
       level: All tests of a specific difficulty level
     show_badges: Show badges

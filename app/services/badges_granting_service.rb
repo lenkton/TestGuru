@@ -1,6 +1,6 @@
 class BadgesGrantingService
   CONDITIONS = {
-    'tries_count' => Badges::TriesCountConditionSpecification,
+    'first_try' => Badges::SuccessFromTheFirstTrySpecification,
     'category' => Badges::CategoryConditionSpecification,
     'level' => Badges::LevelConditionSpecification
   }.freeze

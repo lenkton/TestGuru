@@ -11,7 +11,7 @@ ru:
     quit: Выйти
   badges:
     conditions:
-      tries_count: Количество попыток
+      first_try: Количество попыток
       category: Все тесты категории
       level: Все тесты определённого уровня сложности
     show_badges: Показать бейджи

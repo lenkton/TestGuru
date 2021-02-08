@@ -125,7 +125,7 @@ badges =
       {
         name: 'Badge for the 1st triers',
         image_url: "http://localhost:3000/smile.bmp",
-        condition_type: 'tries_count',
+        condition_type: 'first_try',
         condition_parameter: 1
       },
       {
