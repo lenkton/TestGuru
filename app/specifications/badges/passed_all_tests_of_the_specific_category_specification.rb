@@ -9,6 +9,8 @@ class Badges::PassedAllTestsOfTheSpecificCategorySpecification < Badges::Abstrac
     tests.size == passed_tests.size
   end
 
+  private
+
   def passed_tests
     Test
       .where(category_id: @parameter)

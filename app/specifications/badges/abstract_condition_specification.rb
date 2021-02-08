@@ -8,6 +8,8 @@ class Badges::AbstractConditionSpecification
     raise "satisfies? is not implemented in the #{self.class}"
   end
 
+  protected
+
   def already_has_badge?
     @test_taking_session
       .user

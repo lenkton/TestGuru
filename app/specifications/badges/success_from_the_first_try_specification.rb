@@ -3,6 +3,8 @@ class Badges::SuccessFromTheFirstTrySpecification < Badges::AbstractConditionSpe
     @test_taking_session.successful? && first_try?
   end
 
+  private
+
   def first_try?
     TestTakingSession.where(
       user: @test_taking_session.user,
