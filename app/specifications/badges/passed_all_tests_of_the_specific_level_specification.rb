@@ -3,7 +3,7 @@ class Badges::PassedAllTestsOfTheSpecificLevelSpecification < Badges::AbstractCo
   def satisfies?
     return false if already_has_badge?
 
-    @test_taking_session.successful? && passed_all_tests?
+    @test_taking_session.success && passed_all_tests?
   end
 
   private

@@ -1,6 +1,6 @@
 class Badges::SuccessFromTheFirstTrySpecification < Badges::AbstractConditionSpecification
   def satisfies?
-    @test_taking_session.successful? && first_try?
+    @test_taking_session.success && first_try?
   end
 
   private

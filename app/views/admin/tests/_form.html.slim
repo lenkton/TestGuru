@@ -9,4 +9,7 @@
   = form.label :category_id
   = form.collection_select :category_id, Category.all, :id, :name, prompt: true
 
+  = form.label :time_limit
+  = form.number_field :time_limit
+
   = form.submit
