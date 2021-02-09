@@ -16,7 +16,7 @@ h1 = @test_taking_session.test.name
   p
     = @test_taking_session.current_question.text
     | (#{@test_taking_session.question_number}/#{@test_taking_session.questions_total})
-  = form_with url: test_taking_session_path(@test_taking_session), local: true, method: :put do |form|
+  = form_with url: test_taking_session_path(@test_taking_session), local: true, method: :put, id: :form do |form|
     ul = form.collection_check_boxes :answer_ids, @test_taking_session.current_question.answers, :id, :text, include_hidden: false do |boxes|
       li 
         = boxes.check_box

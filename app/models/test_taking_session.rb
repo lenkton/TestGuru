@@ -46,7 +46,7 @@ class TestTakingSession < ApplicationRecord
   end
 
   def out_of_time?
-    taking_time > test.time_limit
+    test.time_limit.present? && taking_time > test.time_limit
   end
 
   private
